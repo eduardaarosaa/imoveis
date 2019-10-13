@@ -3,9 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Contatos;
 
 class ContatosController extends Controller
 {
+    private $contato;
+
+    public function __construct(Contatos $contato)
+    {
+        $this->contatos = $contato;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -23,7 +30,21 @@ class ContatosController extends Controller
      */
     public function create()
     {
-        //
+        $contato = [
+            'nome' => request('nome'),
+            'email' => request('email'),
+            'telefone' => request('telefone'),
+            'assunto' => request('assunto')
+        ];
+
+        $check =  Contatos::create($contato);
+        if (!empty($check)) {
+            toastr()->success('Contato enviado com sucesso!!!');
+            return redirect()->back();
+        } else {
+            toastr()->error('Erro ao enviar essa mensagem!!!');
+            header('Location: contato.php');
+        }
     }
 
     /**
@@ -43,9 +64,10 @@ class ContatosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        $contato = $this->contatos->get();
+        return view('painel/verContatos', compact('contato'));
     }
 
     /**
@@ -80,5 +102,11 @@ class ContatosController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function formContato()
+    {
+
+        return view('contatos');
     }
 }

@@ -133,7 +133,7 @@
                                         <i class="fas fa-upload"></i>
                                         <input type="file" name="foto" onchange="mostraPrev(this)" id="foto" multiple>
                                         <div class="row">
-                                            <div class="col-md-12">
+                                            <div class="col-md-12" align="center">
                                                 <div id="img"></div>
 
                                             </div>

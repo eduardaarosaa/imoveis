@@ -20,19 +20,4 @@
     </div>
 </div>
 <script>
-    function mostraPrev(input) {
-        if (input.files && input.files[0]) {
-            //FileReader - lê o arquivo que foi carregado
-            var reader = new FileReader();
-            //e é o proprio elemento de imagem - evento 
-            reader.onload = function(e) {
-
-                //recuperando o nome desse arquivo 
-                document.querySelector('#img').innerHTML = '<img width="150" src="' + e.target.result + '">';
-            }
-
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-</script>
-@endsection
+    @endsection
