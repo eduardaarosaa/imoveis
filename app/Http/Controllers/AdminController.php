@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ImoveisController extends Controller
+class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,7 @@ class ImoveisController extends Controller
      */
     public function index()
     {
-        return view('painel/addImovel');
+        return view('auth/register');
     }
 
     /**
@@ -43,9 +43,9 @@ class ImoveisController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($id)
     {
-        return view("painel/pesquisarImovel");
+        //
     }
 
     /**

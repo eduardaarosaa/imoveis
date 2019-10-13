@@ -4,15 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Clientes;
 use Illuminate\Http\Request;
-use DB;
+
 
 class ClienteController extends Controller
 {
+
     private $client;
 
-    public function __construct(Client $client)
+    public function __construct(Clientes $client)
     {
-        $this->client = $client;
+        $this->clientes = $client;
     }
 
     /**
@@ -32,22 +33,25 @@ class ClienteController extends Controller
      */
     public function create(Request $request)
     {
-        // $dataForm = $request->except('_token');
-        // $insert = DB::table('_clientes')->insert($dataForm);
-        // if ($insert = true) {
-        //     echo "Dados inseridos com sucesso";
-        // } else {
-        //     echo 'Erro ao salvar um produto';
-        // }
 
-        $client = $this->client->create($request->exept('_token'));
 
-        if ($client == true) {
-            echo "Ok";
+        $client = [
+            'cpf' => request('cpf'),
+            'nome' => request('nome'),
+            'email' => request('email'),
+            'telefone' => request('telefone')
+        ];
+
+        $check =  Clientes::create($client);
+        if (!empty($check)) {
+            toastr()->success('Cliente cadastrado com sucesso');
+            return redirect()->back();
         } else {
-            echo "False";
+            toastr()->error('Erro ao cadastrar um cliente!!!');
+            header('Location: addCliente.php');
         }
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -56,9 +60,7 @@ class ClienteController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
-    }
+    { }
 
     /**
      * Display the specified resource.
@@ -66,9 +68,10 @@ class ClienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        $client = $this->clientes->get();
+        return view('painel/consultaClientes', compact('client'));
     }
 
     /**
@@ -103,5 +106,10 @@ class ClienteController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function buscarCliente(Request $request)
+    {
+        $result = Clientes::where('cpf', $request->cpf)->first();
+        return view('painel/resultadoBusca', compact('result'));
     }
 }
