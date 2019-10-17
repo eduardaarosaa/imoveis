@@ -94,14 +94,20 @@
                     <button type="button" class="btn btn-secondary">Comprar</button>
                     <button type="button" class="btn btn-secondary">Vender</button>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-7">
                     <form>
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Digite cidade ou bairro">
                         </div>
+                        <button type="button" class="btn btn-success">Pesquisar</button>
                 </div>
-                <div class="col-md-3">
-                    <button type="button" class="btn btn-success">Pesquisar</button>
+                <div class="col-md-2">
+                    <div class="card">
+                        <div class="corcontato">
+                            <p>Entre em contato: (11)0000-0000</p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
             </form>
