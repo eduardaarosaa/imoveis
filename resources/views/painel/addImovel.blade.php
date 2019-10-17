@@ -13,10 +13,10 @@
                         {{ session('status') }}
                     </div>
                     @endif
-                    <form method="POST" action="{{ route('cadastrado') }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('salvandoImovel') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group row">
-                            <label for="text" class="col-md-4 col-form-label text-md-right">ID do Cliente</label>
+                            <label for="text" class="col-md-4 col-form-label text-md-right cpf">ID do Cliente</label>
 
                             <div class="col-md-6">
                                 <input id="id_cliente" type="text" class="form-control" name="id_cliente" required>
@@ -171,5 +171,8 @@
             reader.readAsDataURL(input.files[0]);
         }
     }
+    $(document).ready(function() {
+        $('.cpf').mask('999.999.999-99');
+    });
 </script>
 @endsection

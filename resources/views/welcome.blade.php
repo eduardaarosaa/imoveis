@@ -87,9 +87,28 @@
         </div>
         <div class="container">
             <div class="row">
-                <p>o que você precisa?</p>
+                <p><span>o que você precisa?<span></p>
             </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-secondary">Comprar</button>
+                    <button type="button" class="btn btn-secondary">Vender</button>
+                </div>
+                <div class="col-md-6">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Digite cidade ou bairro">
+                        </div>
+                </div>
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-success">Pesquisar</button>
+                </div>
+            </div>
+            </form>
+
+
         </div>
+    </div>
     </div>
 
 </body>

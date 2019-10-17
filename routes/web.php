@@ -30,3 +30,4 @@ Route::get('/venderImovel', 'QueroVenderController@index')->name('venderImovel')
 Route::post('/buscaCliente', 'ClienteController@buscarCliente')->name('buscaCliente');
 Route::get('/contato', 'ContatosController@formContato')->name('contato');
 Route::post('/salvandoForm', 'ContatosController@create')->name('salvandoForm');
+Route::post('/salvandoImovel', 'ImoveisController@create')->name('salvandoImovel');

@@ -8,6 +8,6 @@ class Feature extends Model
 {
     public function properties()
     {
-        return $this->belongsToMany(properties::class);
+        return $this->belongsToMany(Property::class);
     }
 }

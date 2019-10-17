@@ -16,7 +16,7 @@
                     <form method="POST" action="{{ route('cadastrado') }}">
                         @csrf
                         <div class="form-group row">
-                            <label for="text" class="col-md-4 col-form-label text-md-right">CPF</label>
+                            <label for="text" div="cpf" class="col-md-4 col-form-label text-md-right cpf">CPF</label>
 
                             <div class="col-md-6">
                                 <input id="cpf" type="text" class="form-control" name="cpf" required>
@@ -72,10 +72,8 @@
     </div>
 </div>
 <script>
-    <?php
-    if (isset($_GET['error'])) {
-        echo "toastr.error('Preencher o campo " .  $_GET['error'] . "');";
-    }
-    ?>
+    $(document).ready(function() {
+        $('#cpf').mask('999.999.999-99');
+    });
 </script>
 @endsection

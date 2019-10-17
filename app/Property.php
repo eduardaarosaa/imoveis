@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Property extends Model
 {
-    public function feature()
+    public function features()
     {
-        return $this->belongsToMany(feature::class);
+        return $this->belongsToMany(Feature::class);
     }
 }
