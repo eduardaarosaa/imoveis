@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Property;
+use App\Property;
 use Illuminate\Http\Request;
 
 class ImoveisController extends Controller
 {
-    private $imovel;
-    public function __construct(Property $propertys)
+    private $property;
+    public function __construct(Property $property)
     {
-        $this->property = $propertys;
+        $this->property = $property;
     }
     /**
      * Display a listing of the resource.
@@ -27,9 +27,9 @@ class ImoveisController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        $propertys = [
+        $property = [
             'idcliente' => request['idcliente'],
             'tipo' => request['tipo'],
             'titulo' => request['titulo'],
@@ -40,7 +40,7 @@ class ImoveisController extends Controller
             'foto' => request['foto']
         ];
 
-        $check =  Property::create($propertys);
+        $check =  Property::create($property);
         if (!empty($check)) {
             toastr()->success('Imóvel cadastrado com sucesso');
             return redirect()->back();
@@ -56,9 +56,9 @@ class ImoveisController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $propertys)
+    public function store(Request $request, $property)
     {
-        $propertys->features()->sync($request->input('feature'));
+        $property->features()->sync($request->input('feature'));
     }
 
     /**

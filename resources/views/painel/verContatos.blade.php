@@ -14,6 +14,8 @@
                     </div>
                     @endif
 
+                    {{contato}}
+
                 </div>
             </div>
         </div>
