@@ -31,3 +31,5 @@ Route::post('/buscaCliente', 'ClienteController@buscarCliente')->name('buscaClie
 Route::get('/contato', 'ContatosController@formContato')->name('contato');
 Route::post('/salvandoForm', 'ContatosController@create')->name('salvandoForm');
 Route::post('/salvandoImovel', 'ImoveisController@create')->name('salvandoImovel');
+Route::get('/formQueroVender', 'QueroVenderController@formQueroVender')->name('formQuerovender');
+Route::post('/salvandoQueroVender', 'QueroVenderController@create')->name('salvandoQueroVender');

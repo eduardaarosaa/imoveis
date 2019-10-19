@@ -15,12 +15,28 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+    <script type="text/javascript">
+        function slide1() {
+            document.getElementById('id').src = "img/01.jpg";
+            setTimeout("slide2()", 2000)
+        }
+
+        function slide2() {
+            document.getElementById('id').src = "img/02.jpg";
+            setTimeout("slide3()", 2000)
+        }
+
+        function slide3() {
+            document.getElementById('id').src = "img/03.jpg";
+            setTimeout("slide1()", 2000)
+        }
+    </script>
 
 </head>
 
-<body>
+<body onload="slide1()">
     <!-- <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
+           @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
@@ -86,36 +102,33 @@
 
         </div>
         <div class="container">
-            <div class="row">
-                <p><span>o que você precisa?<span></p>
-            </div>
+            <br>
             <div class="row">
                 <div class="col-md-3">
                     <button type="button" class="btn btn-secondary">Comprar</button>
                     <button type="button" class="btn btn-secondary">Vender</button>
                 </div>
-                <div class="col-md-7">
+                <div class="col-md-9">
                     <form>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Digite cidade ou bairro">
+                            <input class="button btn btn-success" name="OK" type="submit" value="Pesquisar" />
+                            <div class="input"><input name="search" class="form-control" type="text" placeholder="Digite cidade ou bairro" /></div>
                         </div>
-                        <button type="button" class="btn btn-success">Pesquisar</button>
-                </div>
-                <div class="col-md-2">
-                    <div class="card">
-                        <div class="corcontato">
-                            <p>Entre em contato: (11)0000-0000</p>
-                        </div>
-                    </div>
+                    </form>
 
                 </div>
+
             </div>
-            </form>
+            <div class="row">
+                <div class="col-md-12">
+                    <img width="100%" id="id">
+                </div>
 
-
+            </div>
         </div>
+
     </div>
-    </div>
+
 
 </body>
 

@@ -19,10 +19,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script type="text/javascript">
+        function slide1() {
+            document.getElementById('id').src = "img/01.jpg";
+            setTimeout("slide2()", 2000)
+        }
+
+        function slide2() {
+            document.getElementById('id').src = "img/02.jpg";
+            setTimeout("slide3()", 2000)
+        }
+
+        function slide3() {
+            document.getElementById('id').src = "img/03.jpg";
+            setTimeout("slide1()", 2000)
+        }
+    </script>
+
 
 </head>
 
-<body>
+<body onload="slide1()">
     <!-- <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -90,6 +107,29 @@
 
         </div>
         <div class="container">
+            <br>
+            <div class="row">
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-secondary">Comprar</button>
+                    <button type="button" class="btn btn-secondary">Vender</button>
+                </div>
+                <div class="col-md-9">
+                    <form>
+                        <div class="form-group">
+                            <input class="button btn btn-success" name="OK" type="submit" value="Pesquisar" />
+                            <div class="input"><input name="search" class="form-control" type="text" placeholder="Digite cidade ou bairro" /></div>
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <img width="100%" id="id">
+                </div>
+
+            </div>
 
         </div>
     </div>

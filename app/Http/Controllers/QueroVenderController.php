@@ -4,8 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\QueroVender;
+
 class QueroVenderController extends Controller
 {
+    private $queroVender;
+    public function __construct(QueroVender $queroVender)
+    {
+        $this->QueroVender = $queroVender;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -23,7 +30,24 @@ class QueroVenderController extends Controller
      */
     public function create()
     {
-        //
+        $queroVender = [
+            'nome' => request('nome'),
+            'email' => request('email'),
+            'telefone' => request('telefone'),
+            'tipo' => request('tipo'),
+            'regiao' => request('regiao'),
+            'valor' => request('valor'),
+            'assunto' => request('assunto')
+        ];
+
+        $check =  QueroVender::create($queroVender);
+        if (!empty($check)) {
+            toastr()->success('Contato enviado com sucesso!!!');
+            return redirect()->back();
+        } else {
+            toastr()->error('Erro ao enviar essa mensagem!!!');
+            header('Location: queroVender.php');
+        }
     }
 
     /**
@@ -80,5 +104,9 @@ class QueroVenderController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function formQuerovender()
+    {
+        return view('queroVenderImoveis');
     }
 }

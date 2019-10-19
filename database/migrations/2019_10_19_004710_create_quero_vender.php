@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFeaturesTable extends Migration
+class CreateQueroVender extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,15 @@ class CreateFeaturesTable extends Migration
      */
     public function up()
     {
-        Schema::create('features', function (Blueprint $table) {
+        Schema::create('quero_vender', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('nome');
+            $table->string('email');
+            $table->string('telefone');
+            $table->string('tipo');
+            $table->string('regiao');
+            $table->string('valor');
+            $table->string('assunto');
             $table->timestamps();
         });
     }
@@ -26,6 +33,6 @@ class CreateFeaturesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('features');
+        Schema::dropIfExists('quero_vender');
     }
 }
