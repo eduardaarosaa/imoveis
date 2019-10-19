@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Property;
+use App\Feature;
 use Illuminate\Http\Request;
 
 class ImoveisController extends Controller
@@ -19,7 +20,8 @@ class ImoveisController extends Controller
      */
     public function index()
     {
-        return view('painel/addImovel');
+        $features = Feature::all();
+        return view('painel/addImovel', compact('features'));
     }
 
     /**
@@ -29,19 +31,15 @@ class ImoveisController extends Controller
      */
     public function create(Request $request)
     {
-        $property = [
-            'idcliente' => request['idcliente'],
-            'tipo' => request['tipo'],
-            'titulo' => request['titulo'],
-            'valor' => request['valor'],
-            'descricao' => resquest['descricao'],
-            'localizacao' => request['localizacao'],
-            'caracteristicas' => request['caracteristicas'],
-            'foto' => request['foto']
-        ];
 
-        $check =  Property::create($property);
-        if (!empty($check)) {
+        $property = $this->property->create($request->except('_token'));
+
+        $property->features()->sync($request->input('feature'));
+        if (isset($request['photo'])) {
+            $property->addMediaFromRequest('photo')->toMediaCollection('photo');
+        }
+
+        if (!empty($property)) {
             toastr()->success('Imóvel cadastrado com sucesso');
             return redirect()->back();
         } else {
@@ -56,10 +54,8 @@ class ImoveisController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $property)
-    {
-        $property->features()->sync($request->input('feature'));
-    }
+    public function store(Request $request)
+    { }
 
     /**
      * Display the specified resource.

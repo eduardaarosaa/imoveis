@@ -14,26 +14,35 @@
                     @endif
                     <table class="table">
                         <thead>
+
                             <tr>
-                                <th scope="col">ID do cliente</th>
+                                <th scope="col">Nome</th>
+                                <th scope="col">E-mail</th>
+                                <th scope="col">Telefone</th>
                                 <th scope="col">Tipo</th>
-                                <th scope="col">Título</th>
+                                <th scope="col">Região</th>
                                 <th scope="col">Valor</th>
-                                <th scope="col">Descrição</th>
-                                <th scope="col">Localização</th>
-                                <th scope="col">Caracteristicas do Imóvel</th>
+                                <th scope="col">Descrição do Imóvel</th>
                             </tr>
+
                         </thead>
                         <tbody>
-
+                            @if(count($result) > 0 && isset($result))
+                            @foreach ($result as $row)
                             <tr>
-                                <th scope="row"></th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <th scope="row">$row->name;</th>
+                                <td>$row->email;</td>
+                                <td>$row->telefone;</td>
+                                <td>$row->regiao</td>
+                                <td>$row->valor</td>
+                                <td>$row->descricao</td>
                             </tr>
-
+                            @endforeach
+                            @else
+                            <tr>
+                                <td colspan="7">Nenhum item Cadastrado</td>
+                            </tr>
+                            @endif
                         </tbody>
                     </table>
                 </div>
