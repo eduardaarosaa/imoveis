@@ -15,7 +15,8 @@ class QueroVenderController extends Controller
 
     public function index()
     {
-        return view('painel/venderImovel');
+        $result = QueroVender::all();
+        return view('painel/venderImovel', compact('result'));
     }
 
     public function create()
@@ -80,8 +81,7 @@ class QueroVenderController extends Controller
         // por conveção, a listagem do itens deveria ficar no método INDEX
         // pois no método SHOW é para listar apenas 1
 
-        $result = QueroVender::all();
-        return view('painel/venderImovel', compact('result'));
+
     }
 
     public function edit($id)

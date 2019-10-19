@@ -7,20 +7,17 @@ use App\Contatos;
 
 class ContatosController extends Controller
 {
-    private $contato;
 
-    public function __construct(Contatos $contato)
-    {
-        $this->contatos = $contato;
-    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
+
     {
-        return view('painel/verContatos');
+        $result = verContatos::all();
+        return view('painel/verContatos', compact('result'));
     }
 
     /**

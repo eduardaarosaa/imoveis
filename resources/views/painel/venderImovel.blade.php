@@ -30,12 +30,13 @@
                             @if(count($result) > 0 && isset($result))
                             @foreach ($result as $row)
                             <tr>
-                                <th scope="row">$row->name;</th>
-                                <td>$row->email;</td>
-                                <td>$row->telefone;</td>
-                                <td>$row->regiao</td>
-                                <td>$row->valor</td>
-                                <td>$row->descricao</td>
+                                <th scope="row">{{$row->id}}</th>
+                                <td>{{$row->nome}}</td>
+                                <td>{{$row->email}}</td>
+                                <td>{{$row->telefone}}</td>
+                                <td>{{$row->regiao}}</td>
+                                <td>{{$row->valor}}</td>
+                                <td>{{$row->descricao}}</td>
                             </tr>
                             @endforeach
                             @else
