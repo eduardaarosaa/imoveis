@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\ClientesImport;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 
-use App\QueroImovel;
-
-class QueroImovelController extends Controller
+class ConfigController extends Controller
 {
-
     /**
      * Display a listing of the resource.
      *
@@ -16,8 +15,11 @@ class QueroImovelController extends Controller
      */
     public function index()
     {
-        $result = QueroImovel::all();
-        return view('painel/queroImovel', compact('result'));
+        return view('painel/config');
+    }
+    public function import()
+    {
+        return Excel::download(new ClientesImport, 'Users.xlsx');
     }
 
     /**
@@ -25,27 +27,10 @@ class QueroImovelController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-        $queroImovel = [
-            'nome' => request('nome'),
-            'email' => request('email'),
-            'telefone' => request('telefone'),
-            'tipo' => request('tipo'),
-            'regiao' => request('regiao'),
-            'valor' => request('valor'),
-            'assunto' => request('assunto')
-        ];
-        $check =  QueroImovel::create($queroImovel);
-        if (!empty($check)) {
-            toastr()->success('Contato enviado com sucesso!!!');
-            return redirect()->back();
-        } else {
-            toastr()->error('Erro ao enviar essa mensagem!!!');
-            header('Location: contato.php');
-        }
+        //
     }
-
 
     /**
      * Store a newly created resource in storage.
@@ -101,11 +86,5 @@ class QueroImovelController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function formQueroImovel()
-    {
-
-        return view('formQueroImovel');
     }
 }

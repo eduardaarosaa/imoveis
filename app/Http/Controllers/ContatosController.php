@@ -16,7 +16,7 @@ class ContatosController extends Controller
     public function index()
 
     {
-        $result = verContatos::all();
+        $result = Contatos::all();
         return view('painel/verContatos', compact('result'));
     }
 

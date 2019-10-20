@@ -13,7 +13,35 @@
                         {{ session('status') }}
                     </div>
                     @endif
+                    <table class="table">
+                        <thead>
 
+                            <tr>
+                                <th scope="col">Nome</th>
+                                <th scope="col">E-mail</th>
+                                <th scope="col">Telefone</th>
+                                <th scope="col">Mensagem</th>
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                            @if(count($result) > 0 && isset($result))
+                            @foreach ($result as $row)
+                            <tr>
+                                <th scope="row">{{$row->id}}</th>
+                                <td>{{$row->nome}}</td>
+                                <td>{{$row->email}}</td>
+                                <td>{{$row->telefone}}</td>
+                                <td>{{$row->assunto}}</td>
+                            </tr>
+                            @endforeach
+                            @else
+                            <tr>
+                                <td colspan="7">Nenhum item Cadastrado</td>
+                            </tr>
+                            @endif
+                        </tbody>
+                    </table>
 
 
                 </div>

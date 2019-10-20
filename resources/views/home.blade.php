@@ -93,7 +93,7 @@
                             <div class="card" style="width: 12rem;">
                                 <div class="card-body" align="center">
                                     <span style="font-size: 3em; color:#101940;">
-                                        <a href="#"><i class="fas fa-tools"></i>
+                                        <a href="{{route('config')}}"><i class="fas fa-tools"></i>
                                     </span>
                                     <h5 class="card-title">Configurações</h5></a>
                                 </div>
