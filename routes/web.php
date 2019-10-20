@@ -36,4 +36,4 @@ Route::post('/salvandoQueroVender', 'QueroVenderController@create')->name('salva
 Route::get('/formQueroImovel', 'QueroImovelController@formQueroImovel')->name('formQueroImovel');
 Route::post('/salvandoQueroImovel', 'QueroImovelController@create')->name('salvandoQueroImovel');
 Route::get('/config', 'ConfigController@index')->name('config');
-Route::get('/clientes/export', 'ConfigController@import')->name('export');
+Route::get('/clientes/export', 'ConfigController@export')->name('export');

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Imports\ClientesImport;
+use App\Exports\ClientesExport;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 
@@ -17,9 +17,13 @@ class ConfigController extends Controller
     {
         return view('painel/config');
     }
-    public function import()
+    // public function import()
+    // {
+    //     return Excel::download(new ClientesImport, 'Users.xlsx');
+    // }
+    public function export()
     {
-        return Excel::download(new ClientesImport, 'Users.xlsx');
+        return Excel::download(new ClientesExport, 'Clientes.xlsx');
     }
 
     /**
