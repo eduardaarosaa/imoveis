@@ -63,6 +63,8 @@
                                 <button type="submit" class="btn btn-success">
                                     Cadastrar
                                 </button>
+                                <input type="button" class="btn btn-success" value="Voltar" onClick="history.go(-1)">
+
                             </div>
                         </div>
                     </form>

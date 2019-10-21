@@ -23,8 +23,12 @@
                             <a href="{{route('export')}}"><button type="button" class="btn btn-success">Extrair</button></a>
                         </div>
                     </div>
-
-
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input type="button" class="btn btn-success" value="Voltar" onClick="history.go(-1)">
+                        </div>
+                    </div>
 
                 </div>
             </div>

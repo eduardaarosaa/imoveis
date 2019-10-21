@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">Quero um imóvel</div>
                 <div class="card-body">
@@ -15,6 +15,7 @@
                     <table class="table">
                         <thead>
                             <tr>
+
                                 <th scope="col">Nome</th>
                                 <th scope="col">E-mail</th>
                                 <th scope="col">Telefone</th>
@@ -29,13 +30,15 @@
                             @if(count($result) > 0 && isset($result))
                             @foreach ($result as $row)
                             <tr>
-                                <th scope="row">{{$row->id}}</th>
+
                                 <td>{{$row->nome}}</td>
                                 <td>{{$row->email}}</td>
                                 <td>{{$row->telefone}}</td>
+                                <td>{{$row->tipo}}</td>
                                 <td>{{$row->regiao}}</td>
                                 <td>{{$row->valor}}</td>
                                 <td>{{$row->assunto}}</td>
+                                <td><input type="button" class="btn btn-success" value="Verificado"></td>
                             </tr>
                             @endforeach
                             @else
@@ -46,6 +49,7 @@
 
                         </tbody>
                     </table>
+                    <input type="button" class="btn btn-success" value="Voltar" onClick="history.go(-1)">
                 </div>
             </div>
         </div>

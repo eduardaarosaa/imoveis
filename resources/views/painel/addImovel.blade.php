@@ -92,8 +92,7 @@
                                     <label class="col-md-4 col-form-label text-md-right">(Máximo 6 fotos)</label>
                                     <p>Carregue sua foto</a>
                                         <i class="fas fa-upload"></i>
-                                        <!-- <input type="file" name="photos" onchange="mostraPrev(this)" id="foto" multiple> -->
-                                        <input type="file" name="photo">
+                                        <input type="file" name="photos[]" onchange="mostraPrev(this)" id="foto" multiple>
                                         <div class="row">
                                             <div class="col-md-12" align="center">
                                                 <div id="img"></div>
@@ -110,6 +109,7 @@
                                 <button type="submit" class="btn btn-success">
                                     Cadastrar
                                 </button>
+                                <input type="button" class="btn btn-success" value="Voltar" onClick="history.go(-1)">
                             </div>
                         </div>
                     </form>

@@ -3,10 +3,9 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Ver Contatos</div>
-
+                <div class="card-header">Quero um imóvel</div>
                 <div class="card-body">
                     @if (session('status'))
                     <div class="alert alert-success" role="alert">
@@ -15,24 +14,25 @@
                     @endif
                     <table class="table">
                         <thead>
-
                             <tr>
+
                                 <th scope="col">Nome</th>
                                 <th scope="col">E-mail</th>
                                 <th scope="col">Telefone</th>
                                 <th scope="col">Mensagem</th>
                             </tr>
-
                         </thead>
                         <tbody>
+
                             @if(count($result) > 0 && isset($result))
                             @foreach ($result as $row)
                             <tr>
-                                <th scope="row">{{$row->id}}</th>
+
                                 <td>{{$row->nome}}</td>
                                 <td>{{$row->email}}</td>
                                 <td>{{$row->telefone}}</td>
                                 <td>{{$row->assunto}}</td>
+                                <td><input type="button" class="btn btn-success" value="Verificado"></td>
                             </tr>
                             @endforeach
                             @else
@@ -40,14 +40,13 @@
                                 <td colspan="7">Nenhum item Cadastrado</td>
                             </tr>
                             @endif
+
                         </tbody>
                     </table>
-
-
+                    <input type="button" class="btn btn-success" value="Voltar" onClick="history.go(-1)">
                 </div>
             </div>
         </div>
     </div>
 </div>
-<script>
-    @endsection
+@endsection

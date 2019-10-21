@@ -35,8 +35,15 @@ class ImoveisController extends Controller
         $property = $this->property->create($request->except('_token'));
 
         $property->features()->sync($request->input('feature'));
-        if (isset($request['photo'])) {
-            $property->addMediaFromRequest('photo')->toMediaCollection('photo');
+
+        if (isset($request['photos'])) {
+
+            // $property->addMediaFromRequest('photo')->toMediaCollection('photo');
+
+            foreach ($request->photos as $photo) {
+                $property->addMedia($photo)
+                    ->toMediaCollection();
+            }
         }
 
         if (!empty($property)) {
