@@ -71,8 +71,10 @@ class ImoveisController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show()
+
     {
-        return view("painel/pesquisarImovel");
+        $property = Property::all();
+        return view("painel/pesquisarImovel", compact('property'));
     }
 
     /**
@@ -107,5 +109,12 @@ class ImoveisController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function BuscaImovel(Request $request)
+    {
+        //dd($request->all());
+        $result = Property::where('id_client', $request->cpf)->first();
+        return view('painel/resultadoImovel', compact('result'));
     }
 }

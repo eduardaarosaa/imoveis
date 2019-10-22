@@ -3,9 +3,9 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-sm-12 col-md-12 col-sl-12">
             <div class="card">
-                <div class="card-header">Pesquisar um imóvel</div>
+                <div class="card-header">Ver Clientes</div>
                 <div class="card-body">
                     <form action="{{route('buscaImovel')}}" method="POST">
                         @csrf
@@ -15,12 +15,12 @@
                             <button type="submit" class='btn btn-success'>Pesquisar</button>
                     </form>
                 </div>
+                <br>
                 @if (session('status'))
                 <div class="alert alert-success" role="alert">
                     {{ session('status') }}
                 </div>
                 @endif
-
                 <table class="table">
                     <thead>
                         <tr>
@@ -30,26 +30,30 @@
                             <th scope="col">Valor</th>
                             <th scope="col">Descrição</th>
                             <th scope="col">Localização</th>
-
                         </tr>
                     </thead>
                     <tbody>
+                        @if($result == '')
 
-                        @foreach ($property as $row)
+                        <p>Nenhum cliente cadastrado com esse CPF </p>
+
+                        @else
                         <tr>
-                            <th scope="row">{{$row->id_client}}</th>
-                            <td>{{$row->tipo}}</td>
-                            <td>{{$row->title}}</td>
-                            <td>{{$row->value_properties}}</td>
-                            <td>{{$row->description}}</td>
-                            <td>{{$row->location}}</td>
+                            <th scope="row">{{$result->id_client}}</th>
+                            <td>{{$result->tipo}}</td>
+                            <td>{{$result->title}}</td>
+                            <td>{{$result->value_properties}}</td>
+                            <td>{{$result->description}}</td>
+                            <td>{{$result->location}}</td>
                         </tr>
-                        @endforeach
+                        @endif
                     </tbody>
                 </table>
             </div>
+
         </div>
     </div>
 </div>
+
 </div>
 @endsection
