@@ -17,8 +17,6 @@
                             <tr>
 
                                 <th scope="col">Nome</th>
-                                <th scope="col">E-mail</th>
-                                <th scope="col">Telefone</th>
                                 <th scope="col">Mensagem</th>
                             </tr>
                         </thead>
@@ -28,11 +26,9 @@
                             @foreach ($result as $row)
                             <tr>
 
-                                <td><a href="{{route('visualizar', $row->id)}}">{{$row->nome}}</a></td>
-                                <td>{{$row->email}}</td>
-                                <td>{{$row->telefone}}</td>
+                                <td>{{$row->nome}}</td>
                                 <td>{{$row->assunto}}</td>
-                                <td><input type="button" class="btn btn-success" value="Verificado"></td>
+
                             </tr>
                             @endforeach
                             @else

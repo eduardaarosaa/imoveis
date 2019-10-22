@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Property;
 use App\Contatos;
 
 class ContatosController extends Controller
@@ -105,5 +106,11 @@ class ContatosController extends Controller
     {
 
         return view('contatos');
+    }
+    public function visualizar($id)
+    {
+        if (!$mensagem = Contatos::find($id))
+            return redirect()->back();
+        return view('painel/detalhesContatos', compact('mensagem'));
     }
 }

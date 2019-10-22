@@ -117,4 +117,11 @@ class ImoveisController extends Controller
         $result = Property::where('id_client', $request->cpf)->first();
         return view('painel/resultadoImovel', compact('result'));
     }
+
+    public function visualizar($id)
+    {
+        if (!$mensagem = $this->Contatos::find($id))
+            return redirect()->back();
+        return view('detalhesContatos', compact('mensagem'));
+    }
 }

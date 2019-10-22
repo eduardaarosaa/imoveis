@@ -23,6 +23,7 @@ Route::post('/cadastrado', 'ClienteController@create')->name('cadastrado');
 Route::get('/consultaClientes', 'ClienteController@show')->name('consultaClientes');
 Route::get('/addImovel', 'ImoveisController@index')->name('addImovel');
 Route::get('/verContatos', 'ContatosController@index')->name('verContatos');
+Route::get('verContatos/{id}', 'ContatosController@visualizar')->name('visualizar');
 Route::get('/addAdmin', 'AdminController@index')->name('addAdmin');
 Route::get('/pesquisarImovel', 'ImoveisController@show')->name("pesquisarImovel");
 Route::get('/queroImovel', 'QueroImovelController@index')->name('queroImovel');
