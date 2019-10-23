@@ -27,7 +27,9 @@ Route::get('verContatos/{id}', 'ContatosController@visualizar')->name('visualiza
 Route::get('/addAdmin', 'AdminController@index')->name('addAdmin');
 Route::get('/pesquisarImovel', 'ImoveisController@show')->name("pesquisarImovel");
 Route::get('/queroImovel', 'QueroImovelController@index')->name('queroImovel');
+Route::get('queroImovel/{id}', 'QueroImovelController@visualizar')->name('visualizar');
 Route::get('/venderImovel', 'QueroVenderController@index')->name('venderImovel');
+Route::get('venderImovel/{id}', 'QueroVenderController@visualizar')->name('visualizar');
 Route::post('/buscaCliente', 'ClienteController@buscarCliente')->name('buscaCliente');
 Route::get('/contato', 'ContatosController@formContato')->name('contato');
 Route::post('/salvandoForm', 'ContatosController@create')->name('salvandoForm');

@@ -97,4 +97,10 @@ class QueroVenderController extends Controller
     {
         return view('queroVenderImoveis');
     }
+    public function visualizar($id)
+    {
+        if (!$mensagem = QueroVender::find($id))
+            return redirect()->back();
+        return view('painel/detalhesQueroVender', compact('mensagem'));
+    }
 }

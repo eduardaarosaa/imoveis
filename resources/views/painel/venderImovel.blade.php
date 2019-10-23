@@ -22,7 +22,7 @@
                                 <th scope="col">Tipo</th>
                                 <th scope="col">Região</th>
                                 <th scope="col">Valor</th>
-                                <th scope="col">Descrição do Imóvel</th>
+
                             </tr>
 
                         </thead>
@@ -31,14 +31,14 @@
                             @foreach ($result as $row)
                             <tr>
 
-                                <td>{{$row->nome}}</td>
+                                <td><a href="{{route('visualizar', $row->id)}}">{{$row->nome}}</a></td>
                                 <td>{{$row->email}}</td>
                                 <td>{{$row->telefone}}</td>
                                 <td>{{$row->tipo}}</td>
                                 <td>{{$row->regiao}}</td>
                                 <td>{{$row->valor}}</td>
-                                <td>{{$row->assunto}}</td>
-                                <td><input type="button" class="btn btn-success" value="Verificado"></td>
+
+                                <td><input type="button" class="btn btn-success" value="Apagar"></td>
                             </tr>
                             @endforeach
                             @else

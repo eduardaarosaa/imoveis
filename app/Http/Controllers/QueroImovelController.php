@@ -108,4 +108,11 @@ class QueroImovelController extends Controller
 
         return view('formQueroImovel');
     }
+
+    public function visualizar($id)
+    {
+        if (!$mensagem = QueroImovel::find($id))
+            return redirect()->back();
+        return view('painel/detalhesQueroImovel', compact('mensagem'));
+    }
 }
