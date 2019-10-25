@@ -24,12 +24,15 @@ Route::get('/consultaClientes', 'ClienteController@show')->name('consultaCliente
 Route::get('/addImovel', 'ImoveisController@index')->name('addImovel');
 Route::get('/verContatos', 'ContatosController@index')->name('verContatos');
 Route::get('verContatos/{id}', 'ContatosController@visualizar')->name('visualizar');
+Route::delete('/news1/{id}', 'ContatosController@destroy');
 Route::get('/addAdmin', 'AdminController@index')->name('addAdmin');
 Route::get('/pesquisarImovel', 'ImoveisController@show')->name("pesquisarImovel");
 Route::get('/queroImovel', 'QueroImovelController@index')->name('queroImovel');
 Route::get('queroImovel/{id}', 'QueroImovelController@visualizar')->name('visualizar');
+Route::delete('/news/{id}', 'QueroImovelController@destroy');
 Route::get('/venderImovel', 'QueroVenderController@index')->name('venderImovel');
 Route::get('venderImovel/{id}', 'QueroVenderController@visualizar')->name('visualizar');
+Route::delete('/news2/{id}', 'QueroVenderController@destroy');
 Route::post('/buscaCliente', 'ClienteController@buscarCliente')->name('buscaCliente');
 Route::get('/contato', 'ContatosController@formContato')->name('contato');
 Route::post('/salvandoForm', 'ContatosController@create')->name('salvandoForm');

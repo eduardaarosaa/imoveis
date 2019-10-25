@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Quero um imóvel</div>
+                <div class="card-header">Ver Contatos</div>
                 <div class="card-body">
                     @if (session('status'))
                     <div class="alert alert-success" role="alert">
@@ -18,6 +18,7 @@
 
                                 <th scope="col">Nome</th>
                                 <th scope="col">E-mail</th>
+                                <th scope="col">Telefone</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -30,7 +31,13 @@
                                 <td>{{$row->email}}</td>
                                 <td>{{$row->telefone}}</td>
 
-                                <td><input type="button" class="btn btn-success" value="Apagar"></td>
+                                <td>
+                                    <form action="news1/{{$row->id}}" method="post">
+                                        @csrf
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        <button type="submit" class="btn btn-success">Apagar </button>
+                                    </form>
+                                </td>
                             </tr>
                             @endforeach
                             @else

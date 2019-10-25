@@ -38,7 +38,14 @@
                                 <td>{{$row->regiao}}</td>
                                 <td>{{$row->valor}}</td>
 
-                                <td><input type="button" class="btn btn-success" value="Apagar"></td>
+                                <td>
+                                    <form action="news2/{{$row->id}}" method="post">
+                                        @csrf
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        <button type="submit" class="btn btn-success">Apagar </button>
+                                    </form>
+
+                                </td>
                             </tr>
                             @endforeach
                             @else
