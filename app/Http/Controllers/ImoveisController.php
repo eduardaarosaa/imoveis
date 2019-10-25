@@ -124,4 +124,10 @@ class ImoveisController extends Controller
             return redirect()->back();
         return view('detalhesContatos', compact('mensagem'));
     }
+
+    public function verImoveis()
+    {
+        $property = Property::all();
+        return view("welcome", compact('property'));
+    }
 }
