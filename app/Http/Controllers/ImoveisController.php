@@ -127,7 +127,7 @@ class ImoveisController extends Controller
 
     public function verImoveis()
     {
-        $property = Property::all();
+        $property = Property::orderBy('id', 'DESC')->offset(0)->limit(3)->get();
         return view('welcome', compact('property'));
     }
 }

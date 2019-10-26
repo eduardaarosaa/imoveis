@@ -27,7 +27,7 @@
                     <label for="exampleFormControlSelect1">Tipo</label>
                     <select class="form-control" name="tipo" id="exampleFormControlSelect1">
                         <option>Venda</option>
-                        <option>Aluguel</option>
+                        <option>Alugue</option>
                     </select>
                 </div>
                 <div class="form-group">
