@@ -45,3 +45,4 @@ Route::get('/config', 'ConfigController@index')->name('config');
 Route::get('/clientes/export', 'ConfigController@export')->name('export');
 Route::post('/BuscaImovel', 'ImoveisController@BuscaImovel')->name('buscaImovel');
 Route::get('/verImoveis', 'ImoveisController@verImoveis')->name('verImoveis');
+Route::get('/empresa', 'EmpresaController@index')->name('empresa');

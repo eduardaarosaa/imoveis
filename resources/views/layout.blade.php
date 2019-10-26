@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="img/png" href="img/logo.png" />
     <title>Beltran Imóveis</title>
+    <!-- Icones -->
+    <script src="https://kit.fontawesome.com/46935bd70e.js" crossorigin="anonymous"></script>
 
     <!--Css-->
     <link rel="stylesheet" type="text/css" href="css/site/styleSite.css">
@@ -26,7 +28,7 @@
         }
 
         function slide2() {
-            document.getElementById('id').src = "img/02.jpg";
+            document.getElementById('id').src = "img/slide04.jpeg";
             setTimeout("slide3()", 2000)
         }
 
@@ -70,30 +72,21 @@
                         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Empresa</a>
+                        <a class="nav-link" href="{{route('empresa')}}">Empresa</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Imóveis
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Venda</a>
-                            <a class="dropdown-item" href="#">Aluguel</a>
 
-                        </div>
-                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Serviços
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Venda</a>
-                            <a class="dropdown-item" href="#">Compre</a>
+                            <a class="dropdown-item" href="{{route('formQuerovender')}}">Venda</a>
+                            <a class="dropdown-item" href="{{route('formQueroImovel')}}">Compre</a>
 
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Contato</a>
+                        <a class="nav-link" href="{{route('contato')}}" tabindex="-1">Contato</a>
                     </li>
 
                 </ul>
@@ -133,12 +126,23 @@
 
         </div>
     </div>
+
+
+
     <main class="py-4">
         @yield('layoutSite')
     </main>
     <script type="text/javascript" src="js/app.js"></script>
     {!! toastr()->render() !!}
 
+    <footer class='navbar'>
+        <div class="row">
+            <div class='col-md-4'>
+                <img src="img/logo.png" width="150">
+            </div>
+        </div>
+
+    </footer>
 </body>
 
 </html>

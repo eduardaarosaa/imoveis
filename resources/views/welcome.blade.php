@@ -7,6 +7,9 @@
     <link rel="icon" type="img/png" href="img/logo.png" />
     <title>Beltran Imóveis</title>
 
+    <!-- Icones -->
+    <script src="https://kit.fontawesome.com/46935bd70e.js" crossorigin="anonymous"></script>
+
     <!--Css-->
     <link rel="stylesheet" type="text/css" href="css/site/styleSite.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -62,33 +65,23 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Empresa</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Imóveis
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Venda</a>
-                            <a class="dropdown-item" href="#">Aluguel</a>
-
-                        </div>
+                        <a class="nav-link" href="{{route('empresa')}}">Empresa</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Serviços
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Venda</a>
-                            <a class="dropdown-item" href="#">Compre</a>
+                            <a class="dropdown-item" href="{{route('formQuerovender')}}">Venda</a>
+                            <a class="dropdown-item" href="{{route('formQueroImovel')}}">Compre</a>
 
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Contato</a>
+                        <a class="nav-link" href="{{route('contato')}}" tabindex="-1">Contato</a>
                     </li>
 
                 </ul>
@@ -138,10 +131,12 @@
 
             <div class="row">
                 @foreach ($property as $row)
+
+
                 <div class="col-md-4">
 
                     <div class="card" style="width: 18rem;">
-                        <img src="https://abrilcasa.files.wordpress.com/2019/07/1-agra.jpg?quality=95&strip=info&w=1024&h=683" class="card-img-top" alt="...">
+                        <img src="#" class=" card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">
                                 {{$row->title}}</h5>
@@ -154,7 +149,7 @@
                         </div>
                     </div>
                 </div>
-
+                <br>
                 @endforeach
             </div>
 
@@ -187,11 +182,23 @@
 
         </div>
     </div>
+
     <footer class='navbar'>
         <div class="row">
             <div class='col-md-4'>
                 <img src="img/logo.png" width="150">
             </div>
+        </div>
+        <div class='col-md-4'>
+            <p><i class="fas fa-envelope"></i>
+                E-mail:contato@fbimoveis.com.br</p>
+        </div>
+        </div>
+        <div class='col-md-4'>
+            <p><i class="fab fa-whatsapp"></i>
+
+                Whats: (11)0000-0000</p>
+        </div>
         </div>
 
     </footer>
