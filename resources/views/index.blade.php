@@ -135,30 +135,39 @@
             <br>
 
 
-
             <div class="row">
-                @foreach ($property as $row)
                 <div class="col-md-4">
-
                     <div class="card" style="width: 18rem;">
                         <img src="https://abrilcasa.files.wordpress.com/2019/07/1-agra.jpg?quality=95&strip=info&w=1024&h=683" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">
-                                {{$row->title}}</h5>
-                            <p class="card-text">
-                                {{$row->description}}
-                            </p>
-                            <h5 class="card-title">
-                                {{$row->value_properties}}</h5>
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-success">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                        <img src="https://abrilcasa.files.wordpress.com/2019/07/1-agra.jpg?quality=95&strip=info&w=1024&h=683" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-success">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                        <img src="https://abrilcasa.files.wordpress.com/2019/07/1-agra.jpg?quality=95&strip=info&w=1024&h=683" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                             <a href="#" class="btn btn-success">Go somewhere</a>
                         </div>
                     </div>
                 </div>
 
-                @endforeach
             </div>
-
-
             <br>
             <div class="col-md-12 filter">
 
@@ -178,6 +187,12 @@
                         vender? ou comprar? Nós temos a solução para você, consulte agora um dos nossos corretores.
                     </p>
                     <p>Clique AQUI</p>
+                    <i class="fas fa-envelope"></i>
+                    <p>
+
+                        E-mail: contato@fbimoveis.com.br</p>
+
+                    <p> Whats: (11) 0000 - 0000</p>
                 </div>
             </div>
         </div>
@@ -186,15 +201,14 @@
             <br>
 
         </div>
-    </div>
-    <footer class='navbar'>
-        <div class="row">
-            <div class='col-md-4'>
-                <img src="img/logo.png" width="150">
+        <footer class='navbar'>
+            <div class="row">
+                <div class='col-md-4'>
+                    <img src="img/logo.png" width="150">
+                </div>
             </div>
-        </div>
 
-    </footer>
+        </footer>
 
 
 </body>

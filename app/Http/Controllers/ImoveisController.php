@@ -128,6 +128,6 @@ class ImoveisController extends Controller
     public function verImoveis()
     {
         $property = Property::all();
-        return view("welcome", compact('property'));
+        return view('welcome', compact('property'));
     }
 }

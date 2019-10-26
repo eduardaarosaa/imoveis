@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', 'ImoveisController@verImoveis', function () {
     return view('welcome');
 });
 
@@ -44,3 +44,4 @@ Route::post('/salvandoQueroImovel', 'QueroImovelController@create')->name('salva
 Route::get('/config', 'ConfigController@index')->name('config');
 Route::get('/clientes/export', 'ConfigController@export')->name('export');
 Route::post('/BuscaImovel', 'ImoveisController@BuscaImovel')->name('buscaImovel');
+Route::get('/verImoveis', 'ImoveisController@verImoveis')->name('verImoveis');
