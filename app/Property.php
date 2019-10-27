@@ -32,6 +32,10 @@ class Property extends Model  implements HasMedia
         //->withResponsiveImages();
     }
 
+    public function getUrl()
+    {
+        ($this->media[0]->getUrl());
+    }
     //Relação de muitos para muitos.
     public function features()
     {

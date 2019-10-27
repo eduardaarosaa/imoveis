@@ -24,7 +24,7 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">ID</th>
+
                             <th scope="col">CPF</th>
                             <th scope="col">Nome</th>
                             <th scope="col">E-mail</th>
@@ -34,16 +34,20 @@
                     <tbody>
                         @foreach($client as $row)
                         <tr>
-                            <th scope="row">{{$row->id}}</th>
+
                             <td>{{$row->cpf}}</td>
                             <td>{{$row->nome}}</td>
                             <td>{{$row->email}}</td>
                             <td>{{$row->telefone}}</td>
+                            <td><a href="{{route('cliente.edit', $row->id)}}">
+                                    <button type="" class="btn btn-success">Editar</button></a>
                         </tr>
                         @endforeach
                     </tbody>
                 </table>
-                <input type="button" class="btn btn-success" value="Voltar" onClick="history.go(-1)">
+                <a href="{{route('consultaCliente')}}">
+                    <input type="button" class="btn btn-success" value="Voltar">
+                </a>
             </div>
         </div>
     </div>

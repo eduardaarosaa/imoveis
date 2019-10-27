@@ -82,7 +82,9 @@ class ClienteController extends Controller
      */
     public function edit($id)
     {
-        //
+
+        $consulta =  Clientes::find($id);
+        return view('painel/alterarClientes', compact('client'));
     }
 
     /**
@@ -94,7 +96,20 @@ class ClienteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $alterar = Cliente::update([
+            'cpf' => $request->cpf,
+            'nome' => $request->nome,
+            'email' => $request->email,
+            'telefone' => $request->telefone
+        ]);
+
+        if (!empty($alterar)) {
+            toastr()->success('Cliente alterado com sucesso');
+            return view('painel/consultaClientes');
+        } else {
+            toastr()->error('Erro ao alterar um cliente!!!');
+            return view('painel/consultaClientes');
+        }
     }
 
     /**

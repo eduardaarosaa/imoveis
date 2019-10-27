@@ -54,7 +54,9 @@
 
                         </tbody>
                     </table>
-                    <input type="button" class="btn btn-success" value="Voltar" onClick="history.go(-1)">
+                    <a href="{{route('home')}}">
+                        <input type="button" class="btn btn-success" value="Voltar">
+                    </a>
                 </div>
             </div>
         </div>

@@ -46,3 +46,5 @@ Route::get('/clientes/export', 'ConfigController@export')->name('export');
 Route::post('/BuscaImovel', 'ImoveisController@BuscaImovel')->name('buscaImovel');
 Route::get('/verImoveis', 'ImoveisController@verImoveis')->name('verImoveis');
 Route::get('/empresa', 'EmpresaController@index')->name('empresa');
+Route::get('/editarCliente/{id}', 'ClienteController@edit')->name('cliente.edit');
+Route::post('/alterarCliente', 'ClienteController@update')->name('alterarCliente');

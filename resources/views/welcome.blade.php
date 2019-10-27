@@ -131,12 +131,12 @@
 
             <div class="row">
                 @foreach ($property as $row)
-
+                @foreach ($row->getMedia('property') as $media)
 
                 <div class="col-md-4">
 
                     <div class="card" style="width: 18rem;">
-                        <img src="https://asemananews.com.br/wp-content/uploads/2019/06/1.jpg" class=" card-img-top" alt="...">
+                        <img src="{{$media->getUrl('thumb')}}" class=" card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">
                                 {{$row->title}}</h5>
@@ -150,6 +150,7 @@
                     </div>
                 </div>
                 <br>
+                @endforeach
                 @endforeach
             </div>
 
