@@ -131,12 +131,12 @@
 
             <div class="row">
                 @foreach ($property as $row)
-                @foreach ($row->getMedia('property') as $media)
+                @foreach($row->getMedia() as $media)
 
                 <div class="col-md-4">
 
                     <div class="card" style="width: 18rem;">
-                        <img src="{{$media->getUrl('thumb')}}" class=" card-img-top" alt="...">
+                        <img src="$media->getUrl" class=" card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">
                                 {{$row->title}}</h5>

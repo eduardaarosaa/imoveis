@@ -15,7 +15,7 @@ class QueroVenderController extends Controller
 
     public function index()
     {
-        $result = QueroVender::all();
+        $result = QueroVender::orderBy('id', 'DESC')->get();
         return view('painel/venderImovel', compact('result'));
     }
 

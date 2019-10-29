@@ -17,7 +17,7 @@ class ContatosController extends Controller
     public function index()
 
     {
-        $result = Contatos::all();
+        $result = Contatos::orderBy('id', 'DESC')->get();
         return view('painel/verContatos', compact('result'));
     }
 

@@ -16,7 +16,7 @@ class QueroImovelController extends Controller
      */
     public function index()
     {
-        $result = QueroImovel::all();
+        $result = QueroImovel::orderBy('id', 'DESC')->get();
         return view('painel/queroImovel', compact('result'));
     }
 
