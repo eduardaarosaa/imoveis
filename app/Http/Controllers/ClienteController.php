@@ -84,7 +84,7 @@ class ClienteController extends Controller
     {
 
         $consulta =  Clientes::find($id);
-        return view('painel/alterarClientes', compact('client'));
+        return view('painel/alterarClientes')->with('client', $consulta);
     }
 
     /**
@@ -96,7 +96,7 @@ class ClienteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $client = Cliente::findOrFail($id);
+        $client = Clientes::findOrFail($id);
         $client->cpf = $request->cpf;
         $client->nome = $request->nome;
         $client->email = $request->email;
@@ -105,7 +105,7 @@ class ClienteController extends Controller
 
         if (!empty($client)) {
             toastr()->success('Cliente alterado com sucesso');
-            return view('painel/consultaClientes');
+            return view('home');
         } else {
             toastr()->error('Erro ao alterar um cliente!!!');
             return view('painel/consultaClientes');

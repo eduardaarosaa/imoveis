@@ -13,7 +13,7 @@
                         {{ session('status') }}
                     </div>
                     @endif
-                    <form method="POST" action="<?php echo route('alterarCliente', $id) ?>">
+                    <form method="POST" action="<?php echo route('alterarCliente', $client->id) ?>">
 
                         @csrf
                         <div class="form-group row">
