@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="img/png" href="img/logo.png" />
     <title>Beltran Imóveis</title>
+    <!--JQuery mask -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <!-- Icones -->
     <script src="https://kit.fontawesome.com/46935bd70e.js" crossorigin="anonymous"></script>
 
@@ -103,15 +106,20 @@
             <br>
             <div class="row">
                 <div class="col-md-3">
-                    <button type="button" class="btn btn-secondary">Comprar</button>
-                    <button type="button" class="btn btn-secondary">Alugar</button>
+                    <div class="form-group">
+                        <form action="{{route('filtrarImovel')}}" method="POST">
+                            {!! csrf_field() !!}
+                            <select class="form-control" name="tipo" id="exampleFormControlSelect1">
+                                <option value="1">Comprar</option>
+                                <option value="2">Alugar</option>
+                            </select>
+                    </div>
                 </div>
                 <div class="col-md-9">
-                    <form>
-                        <div class="form-group">
-                            <input class="button btn btn-success" name="OK" type="submit" value="Pesquisar" />
-                            <div class="input"><input name="search" class="form-control" type="text" placeholder="Digite cidade ou bairro" /></div>
-                        </div>
+                    <div class="form-group">
+                        <input class="button btn btn-success" type="submit" value="Pesquisar" />
+                        <div class="input"><input name="regiao" class="form-control" id='regiao' type="text" placeholder="Digite cidade ou bairro" /></div>
+                    </div>
                     </form>
 
                 </div>

@@ -21,7 +21,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Telefone</label>
-                    <input type="text" class="form-control" name="telefone" placeholder="Digite seu telefone/Celular">
+                    <input type="text" class="form-control telefone" name="telefone" placeholder="Digite seu telefone/Celular">
                 </div>
                 <div class="form-group">
                     <label>Mensagem</label>
@@ -32,5 +32,8 @@
         </div>
     </div>
 </div>
+<script>
+
+</script>
 
 @endsection

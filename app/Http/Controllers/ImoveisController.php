@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class ImoveisController extends Controller
 {
+    private $totalPage = 8;
     private $property;
     public function __construct(Property $property)
     {
@@ -130,5 +131,14 @@ class ImoveisController extends Controller
 
         $property = Property::orderBy('id', 'DESC')->offset(0)->limit(3)->get();
         return view('welcome', compact('property'));
+    }
+
+    public function filtrarImovel(Request $request, Property $property)
+    {
+        $dataForm = $request->except('_token');
+
+        $property =  $property->search($dataForm, $this->totalPage);
+
+        return view('retornoImovel', compact('property', 'dataForm'));
     }
 }

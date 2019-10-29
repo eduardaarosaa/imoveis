@@ -5,9 +5,16 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use App\ModelFilters\UserFilter;
+use App\ModelFilters\PrivatePostFilter;
+use App\ModelFilters\GuestPostFilter;
+use EloquentFilter\Filterable;
+
+
 
 class Property extends Model  implements HasMedia
 {
+    use Filterable;
     use HasMediaTrait;
     //Qual tabela os dados serão salvos
     protected $table = 'properties';
@@ -40,5 +47,25 @@ class Property extends Model  implements HasMedia
     public function features()
     {
         return $this->belongsToMany(Feature::class);
+    }
+
+
+    public function modelFilter()
+    {
+        return $this->provideFilter(App\ModelFilters\CustomFilters\CustomUserFilter::class);
+    }
+
+    public function search(array $data, $totalPage)
+    {
+        $property = $this->where(function ($query) use ($data) {
+
+            if (isset($data['tipo']))
+                $query->where('tipo', $data['tipo']);
+
+            if (isset($data['regiao']))
+                $query->where('location', $data['regiao']);
+        })->paginate($totalPage);
+
+        return $property;
     }
 }

@@ -96,17 +96,23 @@
         </div>
         <div class="container">
             <br>
+
             <div class="row">
                 <div class="col-md-3">
-                    <button type="button" class="btn btn-secondary">Comprar</button>
-                    <button type="button" class="btn btn-secondary">Alugar</button>
+                    <div class="form-group">
+                        <form action="{{route('filtrarImovel')}}" method="POST">
+                            {!! csrf_field() !!}
+                            <select class="form-control" name="tipo" id="exampleFormControlSelect1">
+                                <option value="1">Comprar</option>
+                                <option value="2">Alugar</option>
+                            </select>
+                    </div>
                 </div>
                 <div class="col-md-9">
-                    <form>
-                        <div class="form-group">
-                            <input class="button btn btn-success" name="OK" type="submit" value="Pesquisar" />
-                            <div class="input"><input name="search" class="form-control" type="text" placeholder="Digite cidade ou bairro" /></div>
-                        </div>
+                    <div class="form-group">
+                        <input class="button btn btn-success" type="submit" value="Pesquisar" />
+                        <div class="input"><input name="regiao" class="form-control" id='regiao' type="text" placeholder="Digite cidade ou bairro" /></div>
+                    </div>
                     </form>
 
                 </div>
@@ -131,7 +137,7 @@
 
             <div class="row">
                 @foreach ($property as $row)
-                @foreach($row->getMedia() as $media)
+
 
                 <div class="col-md-4">
 
@@ -150,7 +156,7 @@
                     </div>
                 </div>
                 <br>
-                @endforeach
+
                 @endforeach
             </div>
 
