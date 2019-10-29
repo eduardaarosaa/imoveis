@@ -141,6 +141,17 @@
                 <img src="img/logo.png" width="150">
             </div>
         </div>
+        <div class='col-md-4'>
+            <p><i class="fas fa-envelope"></i>
+                E-mail:contato@fbimoveis.com.br</p>
+        </div>
+        </div>
+        <div class='col-md-4'>
+            <p><i class="fab fa-whatsapp"></i>
+
+                Whats: (11)0000-0000</p>
+        </div>
+        </div>
 
     </footer>
 </body>
