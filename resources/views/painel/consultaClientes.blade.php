@@ -45,7 +45,7 @@
                         @endforeach
                     </tbody>
                 </table>
-                <a href="{{route('consultaCliente')}}">
+                <a href="{{route('consultaClientes')}}">
                     <input type="button" class="btn btn-success" value="Voltar">
                 </a>
             </div>

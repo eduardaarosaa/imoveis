@@ -96,14 +96,14 @@ class ClienteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $alterar = Cliente::update([
-            'cpf' => $request->cpf,
-            'nome' => $request->nome,
-            'email' => $request->email,
-            'telefone' => $request->telefone
-        ]);
+        $client = Cliente::findOrFail($id);
+        $client->cpf = $request->cpf;
+        $client->nome = $request->nome;
+        $client->email = $request->email;
+        $client->telefone = $request->telefone;
+        $client->save();
 
-        if (!empty($alterar)) {
+        if (!empty($client)) {
             toastr()->success('Cliente alterado com sucesso');
             return view('painel/consultaClientes');
         } else {

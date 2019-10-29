@@ -13,7 +13,8 @@
                         {{ session('status') }}
                     </div>
                     @endif
-                    <form method="POST" action="route('alterarCliente')">
+                    <form method="POST" action="<?php echo route('alterarCliente', $id) ?>">
+
                         @csrf
                         <div class="form-group row">
                             <label for="text" div="cpf" class="col-md-4 col-form-label text-md-right cpf">CPF</label>

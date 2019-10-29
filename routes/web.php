@@ -13,7 +13,7 @@
 
 Route::get('/', 'ImoveisController@verImoveis', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Auth::routes();
 
