@@ -99,7 +99,7 @@
             <div class="row">
                 <div class="col-md-3">
                     <button type="button" class="btn btn-secondary">Comprar</button>
-                    <button type="button" class="btn btn-secondary">Vender</button>
+                    <button type="button" class="btn btn-secondary">Alugar</button>
                 </div>
                 <div class="col-md-9">
                     <form>

@@ -8,7 +8,7 @@ use App\Contatos;
 
 class ContatosController extends Controller
 {
-
+    private $totalPage = 5;
     /**
      * Display a listing of the resource.
      *
@@ -17,7 +17,7 @@ class ContatosController extends Controller
     public function index()
 
     {
-        $result = Contatos::orderBy('id', 'DESC')->get();
+        $result = Contatos::orderBy('id', 'DESC')->paginate($this->totalPage);
         return view('painel/verContatos', compact('result'));
     }
 

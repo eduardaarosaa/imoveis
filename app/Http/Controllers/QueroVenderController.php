@@ -10,12 +10,12 @@ use App\QueroVender;
 
 class QueroVenderController extends Controller
 {
-
+    private $totalPage = 5;
     // construct com injeção de dependecias foi deletado
 
     public function index()
     {
-        $result = QueroVender::orderBy('id', 'DESC')->get();
+        $result = QueroVender::orderBy('id', 'DESC')->paginate($this->totalPage);
         return view('painel/venderImovel', compact('result'));
     }
 
@@ -47,7 +47,7 @@ class QueroVenderController extends Controller
 
             // aqui acredito que não funcionaria pois o ideal seria
             // redirect()->route('nome.da.sua.rota');
-            header('Location: queroVender.php');
+            return redirect()->back();
         }
     }
 

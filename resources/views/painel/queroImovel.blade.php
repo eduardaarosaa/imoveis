@@ -54,6 +54,7 @@
 
                         </tbody>
                     </table>
+                    {!! $result->links() !!}
                     <a href="{{route('home')}}">
                         <input type="button" class="btn btn-success" value="Voltar">
                     </a>

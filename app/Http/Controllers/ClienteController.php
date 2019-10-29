@@ -10,6 +10,7 @@ class ClienteController extends Controller
 {
 
     private $client;
+    private $totalPage = 5;
 
     public function __construct(Clientes $client)
     {
@@ -70,7 +71,7 @@ class ClienteController extends Controller
      */
     public function show()
     {
-        $client = $this->clientes->get();
+        $client = $this->clientes->paginate($this->totalPage);
         return view('painel/consultaClientes', compact('client'));
     }
 

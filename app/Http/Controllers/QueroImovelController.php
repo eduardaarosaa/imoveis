@@ -8,7 +8,7 @@ use App\QueroImovel;
 
 class QueroImovelController extends Controller
 {
-
+    private $totalPage = 5;
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +16,7 @@ class QueroImovelController extends Controller
      */
     public function index()
     {
-        $result = QueroImovel::orderBy('id', 'DESC')->get();
+        $result = QueroImovel::orderBy('id', 'DESC')->paginate($this->totalPage);
         return view('painel/queroImovel', compact('result'));
     }
 
