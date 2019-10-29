@@ -10,3 +10,11 @@ a{
 .corcontato{
     background-color: #86BAA1!important;
 }
+.page-item.active .page-link{
+    background-color:#38C172!important;
+    border-color:#38C172!important;
+}
+.dropdown-item.active .show{
+    background-color: #38C172!important;
+    border-color:#38C172!important;
+}

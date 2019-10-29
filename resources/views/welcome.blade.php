@@ -30,7 +30,7 @@
         }
 
         function slide3() {
-            document.getElementById('id').src = "img/03.jpg";
+            document.getElementById('id').src = "img/cats.jpg";
             setTimeout("slide1()", 2000)
         }
     </script>
