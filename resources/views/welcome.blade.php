@@ -83,7 +83,14 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('contato')}}" tabindex="-1">Contato</a>
                     </li>
+                </ul>
+                <ul class="nav justify-content-end">
+                    <li class="nav-item">
+                        <a class="whats" href="https://wa.me/5511984127568">
+                            <img src="https://imagepng.org/wp-content/uploads/2017/08/WhatsApp-icone-3.png" width="40">
 
+                            Chame agora!!!</a>
+                    </li>
                 </ul>
 
             </div>
@@ -151,9 +158,10 @@
                             </p>
                             <h5 class="card-title">
                                 {{$row->value_properties}}</h5>
-                            <a href="#" class="btn btn-success">Go somewhere</a>
+                            <a href="#" class="btn btn-success">Clique aqui</a>
                         </div>
                     </div>
+                    <br>
                 </div>
                 <br>
 
@@ -173,6 +181,12 @@
                 <div class="col-md-12">
                     <img src="img/banner.jpeg" width="100%">
                 </div>
+            </div>
+            <br>
+            <div class="col-md-12 filter">
+
+                <br>
+
             </div>
             <div class="row">
                 <div class="col-md-12">

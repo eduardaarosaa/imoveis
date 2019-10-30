@@ -94,6 +94,15 @@
 
                 </ul>
 
+                <ul class="nav justify-content-end">
+                    <li class="nav-item">
+                        <a class="whats" href="https://wa.me/5511984127568">
+                            <img src="https://imagepng.org/wp-content/uploads/2017/08/WhatsApp-icone-3.png" width="40">
+
+                            Chame agora!!!</a>
+                    </li>
+                </ul>
+
             </div>
         </nav>
 

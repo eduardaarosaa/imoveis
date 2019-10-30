@@ -20,7 +20,7 @@
                     </p>
                     <h5 class="card-title">
                         {{$row->value_properties}}</h5>
-                    <a href="#" class="btn btn-success">Go somewhere</a>
+                    <a href="#" class="btn btn-success">Clique aqui</a>
                 </div>
             </div>
             <br>
