@@ -143,13 +143,13 @@
 
 
             <div class="row">
-                @foreach ($property as $row)
+                @foreach ($properties as $row)
 
 
                 <div class="col-md-4">
 
                     <div class="card" style="width: 18rem;">
-                        <img src="$media->getUrl" class=" card-img-top" alt="...">
+                        <img src="{{ $row->getFirstMedia()->getFullUrl() }}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">
                                 {{$row->title}}</h5>
@@ -158,7 +158,11 @@
                             </p>
                             <h5 class="card-title">
                                 {{$row->value_properties}}</h5>
-                            <a href="#" class="btn btn-success">Clique aqui</a>
+                            <form action="detalhesImoveis/{{$row->id}}" method="post">
+                                @csrf
+                                <input type="hidden" name="_method" value="">
+                                <button type="submit" class="btn btn-success">Clique aqui </button>
+                            </form>
                         </div>
                     </div>
                     <br>

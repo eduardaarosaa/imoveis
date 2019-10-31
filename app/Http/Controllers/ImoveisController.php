@@ -32,6 +32,8 @@ class ImoveisController extends Controller
      */
     public function create(Request $request)
     {
+        //dd($request->photos);
+
 
         $property = $this->property->create($request->except('_token'));
 
@@ -41,10 +43,12 @@ class ImoveisController extends Controller
 
             // $property->addMediaFromRequest('photo')->toMediaCollection('photo');
 
-            foreach ($request->photos as $photo) {
-                $property->addMedia($photo)
-                    ->toMediaCollection();
-            }
+            // foreach ($request->photos as $photo) {
+            //     $property->addMedia($photo) ->toMediaCollection('imagesFromProperties');
+            $property->addMultipleMediaFromRequest(['photos'])
+                ->each(function ($fileAdder) {
+                    $fileAdder->toMediaCollection();
+                });
         }
 
         if (!empty($property)) {
@@ -126,11 +130,11 @@ class ImoveisController extends Controller
         return view('detalhesContatos', compact('mensagem'));
     }
 
-    public function verImoveis()
+    public function verImoveis(Property $property)
     {
 
-        $property = Property::orderBy('id', 'DESC')->offset(0)->limit(6)->get();
-        return view('welcome', compact('property'));
+        $properties = Property::orderBy('id', 'desc')->paginate(6);
+        return view('welcome', compact('properties'));
     }
 
     public function filtrarImovel(Request $request, Property $property)
@@ -140,5 +144,12 @@ class ImoveisController extends Controller
         $property =  $property->search($dataForm, $this->totalPage);
 
         return view('retornoImovel', compact('property', 'dataForm'));
+    }
+
+    public function detalhesImoveis($id)
+    {
+        if (!$detalhes = $this->Property::find($id))
+            return redirect()->back();
+        return view('detalhesImoveis', compact('detalhes'));
     }
 }

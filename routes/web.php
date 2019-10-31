@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', 'ImoveisController@verImoveis', function () {
-    return view('welcome');
-})->name('welcome');
+Route::get('/', 'ImoveisController@verImoveis')->name('welcome');
 
 Auth::routes();
 
@@ -49,3 +47,4 @@ Route::get('/empresa', 'EmpresaController@index')->name('empresa');
 Route::get('/editarCliente/{id}', 'ClienteController@edit')->name('cliente.edit');
 Route::post('/alterarCliente/{id}', 'ClienteController@update')->name('alterarCliente');
 Route::any('/filtrarImovel', 'ImoveisController@filtrarImovel')->name('filtrarImovel');
+Route::any('detalhesImoveis/{id}', 'ImoveisController@detalhesImoveis')->name('detalhesImoveis');

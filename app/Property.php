@@ -5,12 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-use App\ModelFilters\UserFilter;
-use App\ModelFilters\PrivatePostFilter;
-use App\ModelFilters\GuestPostFilter;
 use EloquentFilter\Filterable;
-
-
 
 class Property extends Model  implements HasMedia
 {
@@ -39,10 +34,7 @@ class Property extends Model  implements HasMedia
         //->withResponsiveImages();
     }
 
-    public function getUrl()
-    {
-        ($this->media[0]->getUrl());
-    }
+
     //Relação de muitos para muitos.
     public function features()
     {
