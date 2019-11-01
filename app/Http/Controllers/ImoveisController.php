@@ -148,8 +148,8 @@ class ImoveisController extends Controller
 
     public function detalhesImoveis($id)
     {
-        if (!$detalhes = $this->Property::find($id))
+        if (!$detalhes = Property::find($id))
             return redirect()->back();
-        return view('detalhesImoveis', compact('detalhes'));
+        return view('detalhes', compact('detalhes'));
     }
 }
