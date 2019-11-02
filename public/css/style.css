@@ -14,7 +14,7 @@ a{
     background-color:#38C172!important;
     border-color:#38C172!important;
 }
-.dropdown-item.active .show{
-    background-color: #38C172!important;
-    border-color:#38C172!important;
+.dropdown-item:active{
+    background-color: #fff!important;
+    color:#000!important;
 }

@@ -47,4 +47,4 @@ Route::get('/empresa', 'EmpresaController@index')->name('empresa');
 Route::get('/editarCliente/{id}', 'ClienteController@edit')->name('cliente.edit');
 Route::post('/alterarCliente/{id}', 'ClienteController@update')->name('alterarCliente');
 Route::any('/filtrarImovel', 'ImoveisController@filtrarImovel')->name('filtrarImovel');
-Route::any('detalhesImoveis/{id}', 'ImoveisController@detalhesImoveis')->name('detalhesImoveis');
+Route::any('/detalhesImoveis/{id}', 'ImoveisController@detalhesImoveis')->name('detalhesImoveis');
