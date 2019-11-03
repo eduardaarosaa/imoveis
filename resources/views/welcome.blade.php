@@ -13,11 +13,12 @@
     <div class="row">
         @foreach ($properties as $row)
 
-
         <div class="col-md-4">
 
             <div class="card" style="width: 18rem;">
-                <img src="https://construtoralage.com.br/wp-content/uploads/2019/08/apartamento-2-3-4-quartos.jpg" class="card-img-top" alt="...">
+                <img src="{{$row->getFirstMediaUrl()}}" class="card-img-top" alt="...">
+
+
 
                 <div class="card-body">
                     <h5 class="card-title">
@@ -39,7 +40,6 @@
             <br>
         </div>
         <br>
-
         @endforeach
     </div>
     <br>
@@ -66,7 +66,7 @@
             <p>Os melhores imóveis com os melhores preços você encontra aqui, na FB Imóveis. Conheça nosso trabalho, quer alugar?
                 vender? ou comprar? Nós temos a solução para você, consulte agora um dos nossos corretores.
             </p>
-            <p>Clique AQUI</p>
+            <p>Clique <a href="https://wa.me/5511984127568">AQUI</a></p>
         </div>
     </div>
 </div>
