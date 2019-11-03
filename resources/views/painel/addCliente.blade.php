@@ -19,7 +19,7 @@
                             <label for="text" div="cpf" class="col-md-4 col-form-label text-md-right cpf">CPF</label>
 
                             <div class="col-md-6">
-                                <input id="cpf" type="text" class="form-control" name="cpf" required>
+                                <input id="cpf" type="text" class="form-control cpf" name="cpf" required>
                             </div>
                         </div>
 
@@ -73,9 +73,5 @@
         </div>
     </div>
 </div>
-<script>
-    $(document).ready(function() {
-        $('#cpf').mask('999.999.999-99');
-    });
-</script>
+
 @endsection

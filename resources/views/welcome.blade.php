@@ -28,12 +28,10 @@
                     </p>
                     <h5 class="card-title">
                         {{$row->value_properties}}</h5>
-                    <form action="detalhesImoveis/{{$row->id}}" method="post">
-                        @csrf
-                        <input type="hidden" name="_method" value="">
-                        <a href="{{route('detalhesImoveis', $row->id)}}"><button type="submit" class="btn btn-success">Clique aqui </button></a>
 
-                    </form>
+                    <a href="{{route('detalhesImoveis', $row->id)}}">
+                        <button type="submit" class="btn btn-success">Clique aqui </button></a>
+
 
                 </div>
             </div>
@@ -69,11 +67,6 @@
             <p>Clique <a href="https://wa.me/5511984127568">AQUI</a></p>
         </div>
     </div>
-</div>
-<div class="col-md-12 filter">
-
-    <br>
-
 </div>
 
 </div>

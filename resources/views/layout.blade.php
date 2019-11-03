@@ -4,16 +4,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="img/png" href="img/logo.png" />
+    <link rel="icon" type="img/png" href="/img/logo.png" />
     <title>Beltran Imóveis</title>
-    <!--JQuery mask -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
     <!-- Icones -->
     <script src="https://kit.fontawesome.com/46935bd70e.js" crossorigin="anonymous"></script>
 
     <!--Css-->
-    <link rel="stylesheet" type="text/css" href="css/site/styleSite.css">
+    <link rel="stylesheet" type="text/css" href="/css/site/styleSite.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -23,20 +21,30 @@
     <!--Toastr-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+    <!--JQuery mask -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.telefone').mask('(00) 0000-0000');
+        });
+    </script>
+
+
     <script type="text/javascript">
         function slide1() {
-            document.getElementById('id').src = "img/01.jpg";
+            document.getElementById('id').src = "{{asset('img/01.jpg')}}";
             setTimeout("slide2()", 2000)
         }
 
         function slide2() {
-            document.getElementById('id').src = "img/slide04.jpeg";
+            document.getElementById('id').src = "{{asset('img/slide04.jpeg')}}";
             setTimeout("slide3()", 2000)
         }
 
         function slide3() {
-            document.getElementById('id').src = "img/cats.jpg";
+            document.getElementById('id').src = "{{asset('img/cats.jpg')}}";
             setTimeout("slide1()", 2000)
         }
     </script>
@@ -63,7 +71,7 @@
     <div class="content">
         <nav class="navbar navbar-expand-lg navbar-light">
             <a class="navbar-brand" href="#">
-                <img src="img/logo.png" width="150">
+                <img src="/img/logo.png" width="150">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -152,10 +160,15 @@
     <script type="text/javascript" src="js/app.js"></script>
     {!! toastr()->render() !!}
 
+    <div class="col-md-12 filter">
+
+        <br>
+
+    </div>
     <footer class='navbar'>
         <div class="row">
             <div class='col-md-4'>
-                <img src="img/logo.png" width="150">
+                <img src="/img/logo.png" width="150">
             </div>
         </div>
         <div class='col-md-4'>
@@ -171,6 +184,7 @@
         </div>
 
     </footer>
+
 </body>
 
 </html>
