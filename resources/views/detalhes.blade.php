@@ -7,19 +7,15 @@
 
         <div class="col-md-4">
 
-            <div class="card" style="width: 18rem;">
-
-                <div class="card-body">
-                    <h5 class="card-title">
-                        {{$detalhes->title}}</h5>
-                    <p class=" card-text">
-                        {{$detalhes->description}}
-                    </p>
-                    <h5 class="card-title">
-                        {{$detalhes->value_properties}}</h5>
-
-
-                </div>
+            <div class="card-body">
+                <h5 class="card-title">
+                    {{$detalhes->title}}</h5>
+                <img src="http://imoveis.test/storage/20/casa1.jpg?v=1572749909" width="500">
+                <p class=" card-text">
+                    {{$detalhes->description}}
+                </p>
+                <h5 class="card-title">
+                    {{$detalhes->value_properties}}</h5>
 
             </div>
         </div>
