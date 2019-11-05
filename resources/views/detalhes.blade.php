@@ -10,7 +10,12 @@
             <div class="card-body">
                 <h5 class="card-title">
                     {{$detalhes->title}}</h5>
-                <img src="http://imoveis.test/storage/20/casa1.jpg?v=1572749909" width="500">
+
+
+                @foreach($detalhes->getMedia() as $media)
+                <img src="{{asset($media->getUrl('thumb'))}}" width="500">
+                @endforeach
+
                 <p class=" card-text">
                     {{$detalhes->description}}
                 </p>

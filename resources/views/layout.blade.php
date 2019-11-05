@@ -9,7 +9,187 @@
 
     <!-- Icones -->
     <script src="https://kit.fontawesome.com/46935bd70e.js" crossorigin="anonymous"></script>
+    <style>
+        .wtricks-headerbar {
+            width: 100%;
+            height: 100px;
+            background: #FFC402;
+            padding-top: 10px;
+        }
 
+        .wtricks-logo {
+            width: 286px;
+            height: 77px;
+            margin: 0 auto;
+            display: block;
+            text-indent: -9999px;
+            background: url('http://cdn.wtricks.com.br/images-theme/logo.png');
+        }
+
+        .wrap {
+            width: 100%;
+            height: 100vh;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-flex-direction: row;
+            -ms-flex-direction: row;
+            flex-direction: row;
+            -webkit-flex-wrap: wrap;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-align-content: stretch;
+            -ms-flex-line-pack: stretch;
+            align-content: stretch;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+
+        .page-header,
+        .page-footer {
+            width: 100%;
+            margin: 20px;
+            text-align: center;
+            /* Take careful when you use text-align center
+       Bacause this affects postion of gallery navigation! I recomend you use it
+       inside a container like this. */
+        }
+
+        @media (min-width: 800px) {
+
+            .page-header,
+            .page-footer {
+                width: 800px;
+                padding: 0;
+            }
+        }
+
+        .page-header p {
+            margin-top: 20px;
+            font-size: .8em;
+        }
+
+        .page-footer p {
+            color: #ccc;
+        }
+
+        .page-footer a {
+            color: #000;
+            text-decoration: none;
+        }
+
+        /* Final page style
+   !!Below this line, Gallery's code starts!!*/
+        /* Slideshow container */
+        .gallery-container {
+            width: 90%;
+            position: relative;
+            margin: 0 5%;
+            background: #333;
+            padding: 2px;
+        }
+
+        @media (min-width: 480px) {
+            .gallery-container {
+                width: 800px;
+                margin: auto;
+            }
+        }
+
+        /* Hide the images by default */
+        .mySlides {
+            display: none;
+        }
+
+        /* Next & previous buttons */
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            margin-top: -22px;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        /* Position the "next button" to the right */
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        /* On hover, add a black background color with a little bit see-through */
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Caption text */
+        .text {
+            color: #f2f2f2;
+            font-size: 12px;
+            padding: 8px 12px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .imgslide {
+            width: 100%;
+        }
+
+        /* Number text (1/3 etc) */
+        .numbertext {
+            color: #f2f2f2;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+
+        @media (max-width: 768px) {
+            .numbertext {
+                top: 15px;
+            }
+        }
+
+        /* Fading animation */
+        .fade {
+            -webkit-animation-name: fade;
+            -webkit-animation-duration: 1.5s;
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @-webkit-keyframes fade {
+            from {
+                opacity: .4
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        @keyframes fade {
+            from {
+                opacity: .4
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+    </style>
     <!--Css-->
     <link rel="stylesheet" type="text/css" href="/css/site/styleSite.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -25,13 +205,6 @@
     <!--JQuery mask -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('.telefone').mask('(00) 0000-0000');
-        });
-    </script>
-
-
     <script type="text/javascript">
         function slide1() {
             document.getElementById('id').src = "{{asset('img/01.jpg')}}";
@@ -184,6 +357,86 @@
         </div>
 
     </footer>
+    <script type="text/javascript">
+        window.onload = function() {
+
+            document.getElementById('txt_telefone').onkeypress = function() {
+                if (this.value.length == 0) this.value = this.value + "(";
+                if (this.value.length == 3) this.value = this.value + ")";
+                if (this.value.length == 9) this.value = this.value + "-";
+
+
+            }
+
+        }
+
+        function moeda(a, e, r, t) {
+            let n = "",
+                h = j = 0,
+                u = tamanho2 = 0,
+                l = ajd2 = "",
+                o = window.Event ? t.which : t.keyCode;
+            if (13 == o || 8 == o)
+                return !0;
+            if (n = String.fromCharCode(o),
+                -1 == "0123456789".indexOf(n))
+                return !1;
+            for (u = a.value.length,
+                h = 0; h < u && ("0" == a.value.charAt(h) || a.value.charAt(h) == r); h++)
+            ;
+            for (l = ""; h < u; h++)
+                -
+                1 != "0123456789".indexOf(a.value.charAt(h)) && (l += a.value.charAt(h));
+            if (l += n,
+                0 == (u = l.length) && (a.value = ""),
+                1 == u && (a.value = "0" + r + "0" + l),
+                2 == u && (a.value = "0" + r + l),
+                u > 2) {
+                for (ajd2 = "",
+                    j = 0,
+                    h = u - 3; h >= 0; h--)
+                    3 == j && (ajd2 += e,
+                        j = 0),
+                    ajd2 += l.charAt(h),
+                    j++;
+                for (a.value = "",
+                    tamanho2 = ajd2.length,
+                    h = tamanho2 - 1; h >= 0; h--)
+                    a.value += ajd2.charAt(h);
+                a.value += r + l.substr(u - 2, u)
+            }
+            return !1
+        } <
+
+        var slideIndex = 1;
+        showSlides(slideIndex);
+        // Next/previous controls
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+            ga('send', 'event', 'galeria', 'next_prev', 'Titulo da página');
+        }
+        // Thumbnail image controls
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            if (n > slides.length) {
+                slideIndex = 1
+            }
+            if (n < 1) {
+                slideIndex = slides.length
+            }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex - 1].style.display = "block";
+        }
+    </script>
+
+
 
 </body>
 

@@ -21,7 +21,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Telefone</label>
-                    <input type="text" class="form-control" name="telefone" placeholder="Digite seu telefone/Celular">
+                    <input type="text" class="form-control" name="telefone" id="txt_telefone" maxlength="14" placeholder="Digite seu telefone/Celular">
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">Tipo</label>
@@ -36,7 +36,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Valor do Imóvel</label>
-                    <input type="text" class="form-control" name="valor" placeholder="Digite seu nome">
+                    <input type="text" class="form-control" name="valor" onKeyPress="return(moeda(this,'.',',',event))" placeholder="Digite seu nome">
                 </div>
                 <div class="form-group">
                     <label>Descrição</label>
