@@ -23,6 +23,7 @@ class Property extends Model  implements HasMedia
         'description',
         'location',
         'status',
+
     ];
 
     public function registerMediaCollections()
