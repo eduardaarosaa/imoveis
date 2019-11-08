@@ -47,6 +47,8 @@
                         @endforeach
                     </tbody>
                 </table>
+                {!! $property->links() !!}
+
             </div>
         </div>
     </div>

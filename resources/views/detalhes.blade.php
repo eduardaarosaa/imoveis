@@ -8,7 +8,7 @@
         <div class="col-md-8">
             <div class="card" style="">
                 <div class="card-body">
-                    <h5 class="card-title">
+                    <h5 class="card-title title">
                         {{$detalhes->title}}</h5>
 
 
@@ -17,7 +17,6 @@
                     @endforeach
                     <br>
                     <br>
-                    <i class="fas fa-align-right"></i>
                     <h5>Descrição do Imóvel:</h5>
                     <p class=" card-text">
                         {{$detalhes->description}}
@@ -31,7 +30,26 @@
                     <p class=" card-text">
                         {{$detalhes->location}}
                     </p>
-
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h5>Qnt. Quartos</h5>
+                            <p class=" card-text">
+                                {{$detalhes->room}}
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <h5>Qnt. Banheiros</h5>
+                            <p class=" card-text">
+                                {{$detalhes->bathroom}}
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <h5>Mêtros</h5>
+                            <p class=" card-text">
+                                {{$detalhes->meters}}
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -40,6 +58,15 @@
                 <div class="card-body">
                     <h5 class="card-title">Valor</h5>
                     <a href="#" class="btn btn-success"> {{$detalhes->value_properties}}</a>
+                    <br><br>
+
+                    Quer saber mais detalhes?Chame agora!
+                    <a class="whats" href="https://wa.me/5511984127568">
+                        <img src="https://imagepng.org/wp-content/uploads/2017/08/WhatsApp-icone-3.png" width="30">
+
+                    </a>
+
+
                 </div>
             </div>
         </div>

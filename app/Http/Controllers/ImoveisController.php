@@ -78,7 +78,7 @@ class ImoveisController extends Controller
     public function show()
 
     {
-        $property = Property::all();
+        $property = Property::orderBy('id', 'DESC')->paginate($this->totalPage);
         return view("painel/pesquisarImovel", compact('property'));
     }
 

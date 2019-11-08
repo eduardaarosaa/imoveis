@@ -62,6 +62,27 @@
                                 <input id="localizacao" type="text" class="form-control" name="location" required>
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label for="text" class="col-md-4 col-form-label text-md-right">Qnt. Quartos</label>
+
+                            <div class="col-md-6">
+                                <input id="room" type="text" class="form-control" name="room" required>
+                            </div>
+
+                        </div>
+                        <div class="form-group row">
+                            <label for="text" class="col-md-4 col-form-label text-md-right">Qnt. Banheiros</label>
+                            <div class="col-md-6">
+                                <input id="bathroom" type="text" class="form-control" name="bathroom" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="text" class="col-md-4 col-form-label text-md-right">Mêtros</label>
+                            <div class="col-md-6">
+                                <input id="meters" type="text" class="form-control" name="meters" required>
+                            </div>
+                        </div>
 
                         <div class="form-group row">
                             <label class="col-md-4 col-form-label text-md-right">Características do Imóvel:</label>

@@ -22,6 +22,9 @@ class Property extends Model  implements HasMedia
         'value_properties',
         'description',
         'location',
+        'room',
+        'bathroom',
+        'meters',
         'status',
 
     ];
@@ -30,8 +33,8 @@ class Property extends Model  implements HasMedia
     {
         $this
             ->addMediaConversion('thumb')
-            ->width(275)
-            ->height(220);
+            ->width(500)
+            ->height(500);
         //->withResponsiveImages();
     }
 

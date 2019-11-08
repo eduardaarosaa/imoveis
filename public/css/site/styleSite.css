@@ -32,3 +32,9 @@ body{
     text-decoration: none;
     color:#000!important;
 }
+ul{
+    list-style: none!important;
+}
+.title{
+    font-size:25pt;
+}
