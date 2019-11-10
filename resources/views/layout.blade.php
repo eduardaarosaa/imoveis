@@ -170,6 +170,7 @@
             animation-duration: 1.5s;
         }
 
+
         @-webkit-keyframes fade {
             from {
                 opacity: .4
@@ -188,6 +189,7 @@
             to {
                 opacity: 1
             }
+
         }
     </style>
     <!--Css-->
@@ -243,7 +245,7 @@
 
     <div class="content">
         <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="{{route('welcome')}}">
                 <img src="/img/logo.png" width="150">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -433,6 +435,14 @@
                 slides[i].style.display = "none";
             }
             slides[slideIndex - 1].style.display = "block";
+        }
+        var slideIndex = [1, 1];
+        var slideId = ["mySlides1", "mySlides2"]
+        showSlides(1, 0);
+        showSlides(1, 1);
+
+        function plusSlides(n, no) {
+            showSlides(slideIndex[no] += n, no);
         }
     </script>
 

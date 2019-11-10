@@ -10,19 +10,25 @@
                 <div class="card-body">
                     <h5 class="card-title title">
                         {{$detalhes->title}}</h5>
+                    <div class="row">
+                        <div class="col-md-12">
+                            @foreach($detalhes->getMedia() as $media)
 
+                            <img src="{{asset($media->getUrl('thumb'))}}" class="img-fluid" width="500">
+                            @endforeach
+                        </div>
 
-                    @foreach($detalhes->getMedia() as $media)
-                    <img src="{{asset($media->getUrl('thumb'))}}" class="img-fluid" width="500">
-                    @endforeach
+                    </div>
+
                     <br>
                     <br>
+                    <h5 class="card-title">
+                        R$ {{$detalhes->value_properties}}</h5>
+
                     <h5>Descrição do Imóvel:</h5>
                     <p class=" card-text">
                         {{$detalhes->description}}
                     </p>
-                    <h5 class="card-title">
-                        R$ {{$detalhes->value_properties}}</h5>
 
                     <i class="fas fa-map-marker-alt" size="3x"></i>
                     <h5> Localização:</h5>
@@ -49,6 +55,18 @@
                                 {{$detalhes->meters}}
                             </p>
                         </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h5>Características:</h5>
+                            <p class=" card-text">
+                                @foreach($detalhes->features as $row)
+                                <i class="fas fa-check"></i>
+                                {{$row->name}} <br>
+                                @endforeach
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -57,7 +75,7 @@
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">Valor</h5>
-                    <a href="#" class="btn btn-success"> {{$detalhes->value_properties}}</a>
+                    <a href="#" class="btn btn-success">R$ {{$detalhes->value_properties}}</a>
                     <br><br>
 
                     Quer saber mais detalhes?Chame agora!

@@ -30,6 +30,8 @@
                             <th scope="col">Valor</th>
                             <th scope="col">Descrição</th>
                             <th scope="col">Localização</th>
+                            <th scope="col">Status</th>
+
 
                         </tr>
                     </thead>
@@ -43,6 +45,14 @@
                             <td>{{$row->value_properties}}</td>
                             <td>{{$row->description}}</td>
                             <td>{{$row->location}}</td>
+                            <td>
+                                <form action="apagar/{{$row->id}}" method="post">
+                                    @csrf
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <button type="submit" class="btn btn-success">Excluir</button>
+                                </form>
+
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>

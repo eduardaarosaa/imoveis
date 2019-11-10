@@ -113,7 +113,15 @@ class ImoveisController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $delete = Property::find($id)->delete();
+
+        if (!empty($delete)) {
+            toastr()->success('Imóvel excluído com sucesso!!!');
+            return redirect()->back();
+        } else {
+            toastr()->error('Erro ao excluir!!!');
+            return redirect()->back();
+        }
     }
 
     public function BuscaImovel(Request $request)
