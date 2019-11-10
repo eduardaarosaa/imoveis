@@ -141,17 +141,24 @@
 </div>
 <script>
     function mostraPrev(input) {
-        if (input.files && input.files[0]) {
-            //FileReader - lê o arquivo que foi carregado
-            var reader = new FileReader();
-            //e é o proprio elemento de imagem - evento 
-            reader.onload = function(e) {
+        var i = 0;
+        for (i = 0; < input.files.length; i++) {
+            if (input.files && input.files[i]) {
+                //FileReader - lê o arquivo que foi carregado
+                var reader = new FileReader();
+                //e é o proprio elemento de imagem - evento 
+                reader.onload = function(e) {
 
-                //recuperando o nome desse arquivo 
-                document.querySelector('#img').innerHTML = '<img width="150" src="' + e.target.result + '">';
+                    modalHTML = "<img src='" + e.target.result + "'/>";
+                    //recuperando o nome desse arquivo 
+                    document.querySelector('#img').insertAdjacentHTML("beforeend", modalHTML);
+
+
+
+                }
+
+                reader.readAsDataURL(input.files[i])
             }
-
-            reader.readAsDataURL(input.files[0]);
         }
     }
     $(document).ready(function() {
