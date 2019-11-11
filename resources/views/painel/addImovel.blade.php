@@ -19,7 +19,7 @@
                             <label for="text" class="col-md-4 col-form-label text-md-right cpf">ID do Cliente</label>
 
                             <div class="col-md-6">
-                                <input id="id_cliente" type="text" class="form-control" name="id_client" required>
+                                <input id="txt_cpf" type="text" class="form-control" name="id_client" required>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -43,7 +43,7 @@
                             <label for="text" class="col-md-4 col-form-label text-md-right">Valor do Imóvel</label>
 
                             <div class="col-md-6">
-                                <input id="valor_imovel" type="text" class="form-control" name="value_properties" required>
+                                <input id="valor_imovel" type="text" class="form-control" name="value_properties" onkeypress="return(moeda(this,'.',',',event))" required>
                             </div>
                         </div>
 
