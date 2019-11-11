@@ -10,15 +10,16 @@ use Illuminate\Notifications\Notification;
 class ResetPassword extends Notification
 {
     use Queueable;
+    private $token;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($token)
     {
-        //
+        $this->token = $token;
     }
 
     /**
@@ -41,9 +42,10 @@ class ResetPassword extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+            ->subject('Alterar Senha')
+            ->line('Você está recebendo este e-mail porque recebemos um pedido de redefinição de senha para sua conta.')
+            ->action('Resetar Senha', url(config('app.url') . route('password.reset', $this->token, false)))
+            ->line('Se você não solicitou uma alteração da senha, nenhuma ação adicional é necessária.');
     }
 
     /**
