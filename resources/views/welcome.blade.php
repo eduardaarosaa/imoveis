@@ -23,9 +23,7 @@
                 <div class="card-body">
                     <h5 class="card-title">
                         {{$row->title}}</h5>
-                    <p class=" card-text">
-                        {{$row->description}}
-                    </p>
+
                     <h5 class="card-title">
                         {{$row->value_properties}}</h5>
 

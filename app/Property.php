@@ -33,8 +33,8 @@ class Property extends Model  implements HasMedia
     {
         $this
             ->addMediaConversion('thumb')
-            ->width(500)
-            ->height(500);
+            ->width(1200)
+            ->height(1200);
         //->withResponsiveImages();
     }
 
