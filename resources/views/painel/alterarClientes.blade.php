@@ -20,7 +20,7 @@
                             <label for="text" div="cpf" class="col-md-4 col-form-label text-md-right cpf">CPF</label>
 
                             <div class="col-md-6">
-                                <input id="cpf" type="text" class="form-control" value="" name="cpf" required>
+                                <input id="cpf" type="text" class="form-control" value="{{$client->cpf}}" name="cpf" required>
                             </div>
                         </div>
 
@@ -28,7 +28,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="nome" value="{{ old('name') }}" required>
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="nome" value="{{$client->nome}}" required>
 
                                 @error('name')
                                 <span class="invalid-feedback" role="alert">
@@ -42,7 +42,7 @@
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required>
+                                <input id="email" type="email" value="{{$client->email}}" class="form-control @error('email') is-invalid @enderror" name="email" required>
 
                                 @error('email')
                                 <span class="invalid-feedback" role="alert">
@@ -55,7 +55,7 @@
                             <label for="text" class="col-md-4 col-form-label text-md-right">Telefone</label>
 
                             <div class="col-md-6">
-                                <input id="cpf" type="text" class="form-control" name="telefone" required>
+                                <input id="cpf" type="text" class="form-control" value="{{$client->telefone}}" name="telefone" required>
                             </div>
                         </div>
 

@@ -30,6 +30,9 @@
                             <th scope="col">Valor</th>
                             <th scope="col">Descrição</th>
                             <th scope="col">Localização</th>
+                            <th scope="col">Excluir</th>
+                            <th scope="col">Editar</th>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -45,6 +48,20 @@
                             <td>{{$result->value_properties}}</td>
                             <td>{{$result->description}}</td>
                             <td>{{$result->location}}</td>
+                            <td>
+                                <form action="apagar/{{$row->id}}" method="post">
+                                    @csrf
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <button type="submit" class="btn btn-success">Excluir</button>
+                                </form>
+
+                            </td>
+
+                            <td>
+                                <a href="{{route('properties.edit', $row->id)}}">
+                                    <button type="" class="btn btn-success">Editar</button></a>
+                            </td>
+                        </tr>
                         </tr>
                         @endif
                     </tbody>

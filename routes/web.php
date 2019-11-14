@@ -49,3 +49,5 @@ Route::post('/alterarCliente/{id}', 'ClienteController@update')->name('alterarCl
 Route::any('/filtrarImovel', 'ImoveisController@filtrarImovel')->name('filtrarImovel');
 Route::any('detalhesImoveis/{id}', 'ImoveisController@detalhesImoveis')->name('detalhesImoveis');
 Route::delete('/apagar/{id}', 'ImoveisController@destroy');
+Route::get('/editarImovel/{id}', 'ImoveisController@edit')->name('properties.edit');
+Route::post('/alterarImovel/{id}', 'ImoveisController@update')->name('alterarImovel');

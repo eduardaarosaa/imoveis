@@ -29,6 +29,7 @@
                             <th scope="col">Nome</th>
                             <th scope="col">E-mail</th>
                             <th scope="col">Telefone</th>
+                            <th scope="col">Editar</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -43,10 +44,17 @@
                             <td>{{$result->nome}}</td>
                             <td>{{$result->email}}</td>
                             <td>{{$result->telefone}}</td>
+                            <td><a href="{{route('cliente.edit', $row->id)}}">
+                                    <button type="" class="btn btn-success">Editar</button></a>
+                            </td>
+
                         </tr>
                         @endif
                     </tbody>
                 </table>
+                <a href="{{route('home')}}">
+                    <input type="button" class="btn btn-success" value="Voltar">
+                </a>
             </div>
 
         </div>

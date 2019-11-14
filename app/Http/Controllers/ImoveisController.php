@@ -90,7 +90,9 @@ class ImoveisController extends Controller
      */
     public function edit($id)
     {
-        //
+        $features = Feature::get();
+        $consulta =  Property::find($id);
+        return view('painel/alterarImoveis')->with('property', $consulta, $features);
     }
 
     /**
@@ -102,7 +104,27 @@ class ImoveisController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $property = Property::findOrFail($id);
+
+        $property->id_client = $request->id_client;
+        $property->tipo = $request->tipo;
+        $property->title = $request->title;
+        $property->value_properties = $request->value_properties;
+        $property->description = $request->description;
+        $property->location = $request->location;
+        $property->room = $request->room;
+        $property->bathroom = $request->bathroom;
+        $property->meters = $request->meters;
+        $property->save();
+
+        if (!empty($property)) {
+            toastr()->success('Imóvel alterado com sucesso');
+            return view('home');
+        } else {
+            toastr()->error('Erro ao alterar um imóvel!!!');
+            return view('home');
+        }
     }
 
     /**

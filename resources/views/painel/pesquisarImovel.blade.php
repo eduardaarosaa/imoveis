@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">Pesquisar um imóvel</div>
                 <div class="card-body">
@@ -31,6 +31,7 @@
                             <th scope="col">Descrição</th>
                             <th scope="col">Localização</th>
                             <th scope="col">Status</th>
+                            <th scope="col">Editar</th>
 
 
                         </tr>
@@ -53,6 +54,11 @@
                                 </form>
 
                             </td>
+
+                            <td>
+                                <a href="{{route('properties.edit', $row->id)}}">
+                                    <button type="" class="btn btn-success">Editar</button></a>
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>
@@ -60,6 +66,9 @@
                 {!! $property->links() !!}
 
             </div>
+            <a href="{{route('home')}}">
+                <input type="button" class="btn btn-success" value="Voltar">
+            </a>
         </div>
     </div>
 </div>
