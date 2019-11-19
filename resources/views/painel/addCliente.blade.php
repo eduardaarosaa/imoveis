@@ -19,12 +19,12 @@
                             <label for="text" div="cpf" class="col-md-4 col-form-label text-md-right cpf">CPF</label>
 
                             <div class="col-md-6">
-                                <input id="cpf" type="text" class="form-control cpf" maxlength="14" id="txt_cpf" name="cpf" required>
+                                <input id="txt_cpf" type="text" class="form-control cpf" maxlength="14" name="cpf" required>
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">Nome</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="nome" value="{{ old('name') }}" required>
@@ -38,7 +38,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">E-mail</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required>
@@ -54,7 +54,7 @@
                             <label for="text" class="col-md-4 col-form-label text-md-right">Telefone</label>
 
                             <div class="col-md-6">
-                                <input id="cpf" type="text" class="form-control" id="txt_telefone" name="telefone" required>
+                                <input type="text" class="form-control" maxlength="14" id="txt_telefone" name="telefone" required>
                             </div>
                         </div>
 
