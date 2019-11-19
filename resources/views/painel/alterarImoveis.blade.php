@@ -83,10 +83,6 @@
                                 <input id="meters" type="text" class="form-control" value="{{$property->meters}}" name="meters" required>
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label class="col-md-4 col-form-label text-md-right">Características do Imóvel:</label>
-                        </div>
-
 
                         <input type="hidden" value="1" name="status">
                         <div class="form-group row mb-0">

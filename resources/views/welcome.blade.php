@@ -59,13 +59,23 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <p>Os melhores imóveis com os melhores preços você encontra aqui, na FB Imóveis. Conheça nosso trabalho, quer alugar?
-                vender? ou comprar? Nós temos a solução para você, consulte agora um dos nossos corretores.
+            <p class="home">Os melhores imóveis com os melhores preços você encontra aqui, na FB Imóveis. Conheça nosso trabalho temos atendimento especial, quer alugar?
+                vender? ou comprar? Nós temos a solução para você, trabalhamos com transparencia em busca de realizar seus sonhos, consulte agora um dos nossos corretores.
             </p>
             <p>Clique <a href="https://wa.me/5511984127568">AQUI</a></p>
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="fb-page" data-href="https://www.facebook.com/FB-Im%C3%B3veis-112456950206254/" data-tabs="timeline" data-width="450" data-height="70" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                <blockquote cite="https://www.facebook.com/FB-Im%C3%B3veis-112456950206254/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/FB-Im%C3%B3veis-112456950206254/">FB Imóveis</a></blockquote>
+            </div>
+        </div>
+    </div>
+
+
 </div>
+
 
 </div>
 

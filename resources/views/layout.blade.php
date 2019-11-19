@@ -203,6 +203,15 @@
     <!--Toastr-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!--Galeria-->
+    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <script type='text/javascript' src='/unitegallery/dist/js/unitegallery.min.js'></script>
+
+    <link rel='stylesheet' href='/unitegallery/dist/css/unite-gallery.css' type='text/css' />
+    <script type='text/javascript' src='/unitegallery/dist/themes/default/ug-theme-default.js'></script>
+    <link rel='stylesheet' href='/unitegallery/dist/themes/default/ug-theme-default.css' type='text/css' />
+    <link rel='stylesheet' href='/unitegallery/dist/skins/alexis/alexis.css' type='text/css' />
+
 
     <!--JQuery mask -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
@@ -228,6 +237,8 @@
 </head>
 
 <body onload="slide1()">
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v5.0&appId=1503017326614219&autoLogAppEvents=1"></script>
     <!-- <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -444,6 +455,11 @@
         function plusSlides(n, no) {
             showSlides(slideIndex[no] += n, no);
         }
+
+
+        jQuery(document).ready(function() {
+            jQuery("#gallery").unitegallery();
+        });
     </script>
 
 

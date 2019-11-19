@@ -64,11 +64,12 @@
                     </tbody>
                 </table>
                 {!! $property->links() !!}
-
-            </div>
-            <a href="{{route('home')}}">
+                <a href="{{route('home')}}">
                 <input type="button" class="btn btn-success" value="Voltar">
             </a>
+
+            </div>
+           
         </div>
     </div>
 </div>
