@@ -83,6 +83,21 @@
                                 <input id="meters" type="text" class="form-control" value="{{$property->meters}}" name="meters" required>
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right">Características do Imóvel:</label>
+                        </div>
+                        @foreach ($features as $feature)
+
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right"></label>
+
+                            <div class="form-check">
+                                <input type="checkbox" name="feature[]" value="{{$feature->id}}"> {{$feature->name}} <br>
+                                </label>
+                            </div>
+                        </div>
+
+                        @endforeach
 
                         <input type="hidden" value="1" name="status">
                         <div class="form-group row mb-0">
@@ -100,29 +115,29 @@
     </div>
 </div>
 <script>
-    function mostraPrev(input) {
-        var i = 0;
-        for (i = 0; < input.files.length; i++) {
-            if (input.files && input.files[i]) {
-                //FileReader - lê o arquivo que foi carregado
-                var reader = new FileReader();
-                //e é o proprio elemento de imagem - evento 
-                reader.onload = function(e) {
+    $(function() {
+        // Pré-visualização de várias imagens no navegador
+        var visualizacaoImagens = function(input, lugarParaInserirVisualizacaoDeImagem) {
 
-                    modalHTML = "<img src='" + e.target.result + "'/>";
-                    //recuperando o nome desse arquivo 
-                    document.querySelector('#img').insertAdjacentHTML("beforeend", modalHTML);
+            if (input.files) {
+                var quantImagens = input.files.length;
 
+                for (i = 0; i < quantImagens; i++) {
+                    var reader = new FileReader();
 
+                    reader.onload = function(event) {
+                        $($.parseHTML('<img class="miniatura">')).attr('src', event.target.result).appendTo(lugarParaInserirVisualizacaoDeImagem);
+                    }
 
+                    reader.readAsDataURL(input.files[i]);
                 }
-
-                reader.readAsDataURL(input.files[i])
             }
-        }
-    }
-    $(document).ready(function() {
-        $('.cpf').mask('999.999.999-99');
+
+        };
+
+        $('#foto').on('change', function() {
+            visualizacaoImagens(this, 'div.galeria');
+        });
     });
 </script>
 @endsection

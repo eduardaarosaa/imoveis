@@ -90,9 +90,9 @@ class ImoveisController extends Controller
      */
     public function edit($id)
     {
-
+        $features = Feature::all();
         $consulta =  Property::find($id);
-        return view('painel/alterarImoveis')->with('property', $consulta);
+        return view('painel/alterarImoveis', ['property' => $consulta, 'features' => $features]);
     }
 
     /**
