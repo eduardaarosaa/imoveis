@@ -1,10 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css" rel="stylesheet" />
 <div class="container">
     <div class="row justify-content-center">
-
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Alterar imóvel</div>
@@ -15,7 +13,7 @@
                         {{ session('status') }}
                     </div>
                     @endif
-                    <form method="POST" action="{{route('alterarImovel', $property->id)}}" enctype="multipart/form-data" id="">
+                    <form method="POST" action="{{route('alterarImovel', $property->id)}}" enctype="multipart/form-data" id="dropzoneFrom">
                         @csrf
                         <div class="form-group row">
                             <label for="text" class="col-md-4 col-form-label text-md-right cpf">ID do Cliente</label>
@@ -102,8 +100,9 @@
                         <div class="form-group row">
                             <label class="col-md-4 col-form-label text-md-right">Imagens do Imovel:</label>
                         </div>
+                        <!-- test -->
                         <div class="row">
-                            <div class="form-group">
+                        	<div class="form-group">
                                     <label for="document">Fotos</label>
                                     <div class="needsclick dropzone" id="document-dropzone">
                                         <div class="dz-message needsclick">
@@ -113,29 +112,22 @@
                                     </div>
                                 </div>
                         </div>
+                        <!-- fim do  test-->
                         <div class="row">
 
 
-                            <!--@foreach($property->getMedia() as $media)
+                            @foreach($property->getMedia() as $media)
 
 
-                            <!--<div class="col-md-4">
+                            <div class="col-md-4">
 
                                 <img src="{{asset($media->getUrl('thumb'))}}" class="img-fluid" id="image" width="250" height="250">
-                                <div class="form-group">
-                                    <label for="document">Fotos</label>
-                                    <div class="needsclick dropzone" id="document-dropzone">
-                                        <div class="dz-message needsclick">
-                                            Solte os arquivos aqui ou clique para fazer o upload.<br>
-                                            <span class="note needsclick">(Após o upload das fotos e edição da ficha do imóvel, não se esqueça de clicar em "Salvar". Caso contrário, as imagens <strong>não</strong> serão válidas)</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                
                             </div>
 
 
 
-                            @endforeach-->
+                            @endforeach
                         </div>
                 </div>
 
@@ -154,65 +146,55 @@
     </div>
 </div>
 </div>
-{{-- JS assets at the bottom --}}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>
-{{-- ...Some more scripts... --}}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"></script>
 <script>
-   var uploadedDocumentMap = {}
-   Dropzone.options.documentDropzone = {
-     url: '{{ route('properties.storeMedia') }}',
-     maxFilesize: 2, // MB
-     addRemoveLinks: true,
-     dictDefaultMessage : 'Solte os arquivos aqui ou clique aqui para fazer upload de uma imagem.',
-     maxFiles             : 20,
-     thumbnailWidth     : 300,
-     thumbnailHeight    : 300,
-     acceptedFiles: "image/jpeg,image/png,image/gif",
-     resizeWidth: 500, 
-     resizeHeight: 640,
-     resizeMethod: 'contain', 
-     resizeQuality: 1.0,
-   
-     dictInvalidFileType:  "Você não pode fazer upload de arquivos desse tipo.",
-     headers: {
-       'X-CSRF-TOKEN': "{{ csrf_token() }}"
-     },
-     success: function (file, response) {
-       $('form').append('<input type="hidden" name="property[]" value="' + response.name + '">')
-       uploadedDocumentMap[file.name] = response.name
-     },
-     removedfile: function (file) {
-       file.previewElement.remove()
-       var name = ''
-       if (typeof file.file_name !== 'undefined') {
-         name = file.file_name
-       } else {
-         name = uploadedDocumentMap[file.name]
-       }
-       $('form').find('input[name="property[]"][value="' + name + '"]').remove()
-     },
-     init: function () {
-       @if(isset($property) && $property->media)
-         var files =
-           {!! json_encode($property->getMedia()) !!}
+    var uploadedDocumentMap = {}
+    Dropzone.options.documentDropzone = {
+        url: '{{ route('properties.storeMedia') }}',
+        maxFilesize: 2, // MB
+        addRemoveLinks: true,
+        dictDefaultMessage: 'Solte os arquivos aqui ou clique aqui para fazer upload de uma imagem.',
+        maxFiles: 20,
+        thumbnailWidth: 300,
+        thumbnailHeight: 300,
+        acceptedFiles: "image/jpeg,image/png,image/gif",
+        resizeWidth: 500,
+        resizeHeight: 640,
+        resizeMethod: 'contain',
+        resizeQuality: 1.0,
 
-         for (var i in files) {
-           var file = files[i]
-           this.options.addedfile.call(this, file)
-           this.options.thumbnail.call(this, file, '../storage/' + file.id + '/' + file.file_name + '');
-           file.previewElement.classList.add('dz-complete')
-           $('form').append('<input type="hidden" name="property[]" value="' + file.file_name + '">')
-         }
-       @endif
-     }
-   }
-</script>
-<script>
-
+        dictInvalidFileType: "Você não pode fazer upload de arquivos desse tipo.",
+        headers: {
+            'X-CSRF-TOKEN': "{{ csrf_token() }}"
+        },
+        success: function(file, response) {
+            $('form').append('<input type="hidden" name="property[]" value="' + response.name + '">')
+            uploadedDocumentMap[file.name] = response.name
+        },
+        removedfile: function(file) {
+            file.previewElement.remove()
+            var name = ''
+            if (typeof file.file_name !== 'undefined') {
+                name = file.file_name
+            } else {
+                name = uploadedDocumentMap[file.name]
+            }
+            $('form').find('input[name="property[]"][value="' + name + '"]').remove()
+        },
+        init: function() {
+            @if(isset($property) && $property-> media)
+            var files = {
+                !!json_encode($property-> getMedia('property')) !!
+            }
+            for (var i in files) {
+                var file = files[i]
+                this.options.addedfile.call(this, file)
+                this.options.thumbnail.call(this, file, ' + file.file_name + ');
+                    file.previewElement.classList.add('dz-complete') $('form').append('<input type="hidden" name="property[]" value="' + file.file_name + '">')
+                }
+                @endif
+            }
+        }
     
-    /* 
     $(function() {
         // Pré-visualização de várias imagens no navegador
         var visualizacaoImagens = function(input, lugarParaInserirVisualizacaoDeImagem) {
@@ -238,5 +220,5 @@
         });
     });
 
-    */</script>
+
     @endsection

@@ -11,7 +11,7 @@
                         @csrf
                         <div class="d-flex justify-content-center h-100">
 
-                            <input class="form-control" type="text" name="cpf" placeholder="Search...">
+                            <input class="form-control" type="text" id="txt_cpf" maxlength="14" name="cpf" placeholder="Search...">
                             <button type="submit" class='btn btn-success'>Pesquisar</button>
                     </form>
                 </div>
@@ -65,11 +65,11 @@
                 </table>
                 {!! $property->links() !!}
                 <a href="{{route('home')}}">
-                <input type="button" class="btn btn-success" value="Voltar">
-            </a>
+                    <input type="button" class="btn btn-success" value="Voltar">
+                </a>
 
             </div>
-           
+
         </div>
     </div>
 </div>

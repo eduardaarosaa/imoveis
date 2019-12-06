@@ -44,7 +44,7 @@
                             <td>{{$result->nome}}</td>
                             <td>{{$result->email}}</td>
                             <td>{{$result->telefone}}</td>
-                            <td><a href="{{route('cliente.edit', $row->id)}}">
+                            <td><a href="{{route('cliente.edit', $result->id)}}">
                                     <button type="" class="btn btn-success">Editar</button></a>
                             </td>
 

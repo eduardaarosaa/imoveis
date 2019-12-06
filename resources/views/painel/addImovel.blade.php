@@ -13,13 +13,15 @@
                         {{ session('status') }}
                     </div>
                     @endif
+
+
                     <form method="POST" action="{{ route('salvandoImovel') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group row">
                             <label for="text" class="col-md-4 col-form-label text-md-right cpf">ID do Cliente</label>
 
                             <div class="col-md-6">
-                                <input id="txt_cpf" type="text" class="form-control" name="id_client" required>
+                                <input id="txt_cpf" type="text" class="form-control cpf" maxlength="14" name="cpf" required>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -51,7 +53,7 @@
                             <label for="text" class="col-md-4 col-form-label text-md-right">Descrição</label>
 
                             <div class="col-md-6">
-                                <textarea class="form-control" id="exampleFormControlTextarea1" name="description" rows="3"></textarea>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" maxlength="300" name="description" rows="3"></textarea>
                             </div>
                         </div>
 

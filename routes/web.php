@@ -44,10 +44,16 @@ Route::get('/clientes/export', 'ConfigController@export')->name('export')->middl
 Route::post('/BuscaImovel', 'ImoveisController@BuscaImovel')->name('buscaImovel');
 Route::get('/verImoveis', 'ImoveisController@verImoveis')->name('verImoveis');
 Route::get('/empresa', 'EmpresaController@index')->name('empresa');
-Route::get('/editarCliente/{id}', 'ClienteController@edit')->name('cliente.edit')->middleware('auth');;
-Route::post('/alterarCliente/{id}', 'ClienteController@update')->name('alterarCliente')->middleware('auth');;
+Route::get('/editarCliente/{id}', 'ClienteController@edit')->name('cliente.edit')->middleware('auth');
+Route::post('/alterarCliente/{id}', 'ClienteController@update')->name('alterarCliente')->middleware('auth');
 Route::any('/filtrarImovel', 'ImoveisController@filtrarImovel')->name('filtrarImovel');
 Route::any('detalhesImoveis/{id}', 'ImoveisController@detalhesImoveis')->name('detalhesImoveis');
 Route::delete('/apagar/{id}', 'ImoveisController@destroy')->middleware('auth');;
-Route::get('/editarImovel/{id}', 'ImoveisController@edit')->name('properties.edit')->middleware('auth');;
-Route::post('/alterarImovel/{id}', 'ImoveisController@update')->name('alterarImovel')->middleware('auth');;
+Route::get('/editarImovel/{id}', 'ImoveisController@edit')->name('properties.edit')->middleware('auth');
+Route::post('/alterarImovel/{id}', 'ImoveisController@update')->name('alterarImovel')->middleware('auth');
+Route::post('storeMedia', 'ImoveisController@storeMedia')->name('properties.storeMedia')->middleware('auth');
+
+
+
+///
+Route::post('properties/media', 'ImoveisController@storeMedia')->name('properties.storeMedia');

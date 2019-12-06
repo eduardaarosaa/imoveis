@@ -60,6 +60,21 @@ class ImoveisController extends Controller
         }
     }
 
+    public function storeMedia(Request $request)
+    {
+        $path = storage_path('tmp/uploads');
+        if (!file_exists($path)) {
+            mkdir($path, 0777, true);
+        }
+        $file = $request->file('file');
+        $name = uniqid() . '_' . trim($file->getClientOriginalName());
+        $file->move($path, $name);
+        return response()->json([
+            'name'          => $name,
+            'original_name' => $file->getClientOriginalName(),
+        ]);
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -90,6 +105,7 @@ class ImoveisController extends Controller
      */
     public function edit($id)
     {
+
         $features = Feature::all();
         $consulta =  Property::find($id);
         return view('painel/alterarImoveis', ['property' => $consulta, 'features' => $features]);
@@ -104,7 +120,6 @@ class ImoveisController extends Controller
      */
     public function update(Request $request, $id)
     {
-
         $property = Property::findOrFail($id);
 
         $property->id_client = $request->id_client;
@@ -116,6 +131,29 @@ class ImoveisController extends Controller
         $property->room = $request->room;
         $property->bathroom = $request->bathroom;
         $property->meters = $request->meters;
+
+        $property->features()->sync($request->input('feature'));
+
+        if (count($property->media) > 0) {
+            foreach ($property->media as $media) {
+                if (!in_array($media->file_name, $request->input('property', []))) {
+                    $media->delete();
+                }
+            }
+        }
+    
+        $media = $property->media->pluck('file_name')->toArray();
+    
+
+        
+
+
+        foreach ($request->input('property', []) as $file) {
+                if (count($media) === 0 || !in_array($file, $media)) {
+                    $property->addMedia(storage_path('tmp/uploads/' . $file))->toMediaCollection();
+                }
+            }
+
         $property->save();
 
         if (!empty($property)) {
@@ -172,6 +210,8 @@ class ImoveisController extends Controller
         $dataForm = $request->except('_token');
 
         $property =  $property->search($dataForm, $this->totalPage);
+
+        //dd(empty($property));
 
         return view('retornoImovel', compact('property', 'dataForm'));
     }

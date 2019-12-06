@@ -11,7 +11,7 @@
                         @csrf
                         <div class="d-flex justify-content-center h-100">
 
-                            <input class="form-control" type="text" name="cpf" placeholder="Search...">
+                            <input class="form-control" type="text" name="cpf" id="txt_cpf" placeholder="Search...">
                             <button type="submit" class='btn btn-success'>Pesquisar</button>
                     </form>
                 </div>

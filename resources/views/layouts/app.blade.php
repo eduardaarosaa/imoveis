@@ -35,6 +35,17 @@
 
     <!--Jquery Mask-->
 
+    {{-- CSS assets in head section --}}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css" rel="stylesheet" />
+
+    {{-- ... a lot of main HTML code ... --}}
+
+    {{-- JS assets at the bottom --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>
+    {{-- ...Some more scripts... --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
@@ -103,19 +114,19 @@
     <script type="text/javascript">
         window.onload = function() {
 
-            document.getElementById('txt_telefone').onkeypress = function() {
-                if (this.value.length == 0) this.value = this.value + "(";
-                if (this.value.length == 3) this.value = this.value + ")";
-                if (this.value.length == 9) this.value = this.value + "-";
-            }
             document.getElementById('txt_cpf').onkeypress = function() {
                 if (this.value.length == 3) this.value = this.value + ".";
                 if (this.value.length == 7) this.value = this.value + ".";
                 if (this.value.length == 11) this.value = this.value + "-";
 
-
-
             }
+
+            document.getElementById('txt_telefone').onkeypress = function() {
+                if (this.value.length == 0) this.value = this.value + "(";
+                if (this.value.length == 3) this.value = this.value + ")";
+                if (this.value.length == 9) this.value = this.value + "-";
+            }
+
         }
 
         function moeda(a, e, r, t) {

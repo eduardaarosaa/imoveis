@@ -5,6 +5,12 @@
     <div class="row">
     </div>
     <div class="row">
+        @if(empty($property) == false)
+
+        Nenhum imóvel encontrado nesta localização
+
+        @else
+
         @foreach ($property as $row)
 
 
@@ -29,6 +35,7 @@
         <br>
 
         @endforeach
+        @endif
     </div>
     <br>
     @if (isset($dataForm))

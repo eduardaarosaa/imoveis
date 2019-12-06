@@ -64,4 +64,8 @@ class Property extends Model  implements HasMedia
 
         return $property;
     }
+    public $rules = [
+        'id_client' => 'requerid',
+        'description' => 'requerid | max:300',
+    ];
 }
