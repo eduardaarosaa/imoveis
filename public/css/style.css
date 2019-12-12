@@ -22,3 +22,12 @@ a{
     height: 75px;
     margin: 10px 5px 0 0;
   }
+ .dropzone{
+    border: none!important;
+    width:150px!important;
+}
+
+.dropzone .dz-preview .dz-image img{
+    width:150px!important;
+    display:none;
+}

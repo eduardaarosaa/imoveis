@@ -14,7 +14,12 @@
     <!-- Scripts -->
     <!-- <script src="{{ asset('js/app.js') }}"></script> -->
 
-
+<style>
+    .dropzone .dz-preview .dz-image {
+        width: 150px;
+        height: 150px;
+    }
+</style>
     <!-- Icones -->
     <script src="https://kit.fontawesome.com/46935bd70e.js" crossorigin="anonymous"></script>
 

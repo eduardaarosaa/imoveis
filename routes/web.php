@@ -51,9 +51,5 @@ Route::any('detalhesImoveis/{id}', 'ImoveisController@detalhesImoveis')->name('d
 Route::delete('/apagar/{id}', 'ImoveisController@destroy')->middleware('auth');;
 Route::get('/editarImovel/{id}', 'ImoveisController@edit')->name('properties.edit')->middleware('auth');
 Route::post('/alterarImovel/{id}', 'ImoveisController@update')->name('alterarImovel')->middleware('auth');
-Route::post('storeMedia', 'ImoveisController@storeMedia')->name('properties.storeMedia')->middleware('auth');
-
-
-
-///
-Route::post('properties/media', 'ImoveisController@storeMedia')->name('properties.storeMedia');
+Route::post('properties/media', 'ImoveisController@storeMedia')->name('properties.storeMedia')->middleware('auth');
+Route::get('testemenu', 'ImoveisController@teste')->name('testemenu');

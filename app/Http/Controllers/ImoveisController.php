@@ -108,7 +108,7 @@ class ImoveisController extends Controller
 
         $features = Feature::all();
         $consulta =  Property::find($id);
-        return view('painel/alterarImoveis', ['property' => $consulta, 'features' => $features]);
+        return view('painel/testeImoveis', ['property' => $consulta, 'features' => $features]);
     }
 
     /**
@@ -223,5 +223,10 @@ class ImoveisController extends Controller
 
             return redirect()->back();
         return view('detalhes', compact('detalhes'));
+    }
+
+    public function teste(){
+
+        return view('painel/testeImoveis');
     }
 }
